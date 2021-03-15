@@ -22,6 +22,7 @@ class RecipeType extends AbstractType
             ->add('created_at')
             ->add('updated_at')
             ->add('categories')
+            ->add('diets')
             ->add('ingredients')
             ->add('countries')
             ->add('blog')
