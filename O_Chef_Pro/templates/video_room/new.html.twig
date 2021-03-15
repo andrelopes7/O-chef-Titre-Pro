@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New VideoRoom{% endblock %}
+
+{% block body %}
+    <h1>Create new VideoRoom</h1>
+
+    {{ include('video_room/_form.html.twig') }}
+
+    <a href="{{ path('video_room_index') }}">back to list</a>
+{% endblock %}

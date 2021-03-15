@@ -107,12 +107,18 @@ class Recipe
      */
     private $video_room;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Diet::class, mappedBy="recipe")
+     */
+    private $diets;
+
     public function __construct()
     {
         $this->ingredients = new ArrayCollection();
         $this->posts = new ArrayCollection();
         $this->blog = new ArrayCollection();
         $this->learn = new ArrayCollection();
+        $this->diets = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -374,6 +380,33 @@ class Recipe
     public function setVideoRoom(?VideoRoom $video_room): self
     {
         $this->video_room = $video_room;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Diet[]
+     */
+    public function getDiets(): Collection
+    {
+        return $this->diets;
+    }
+
+    public function addDiet(Diet $diet): self
+    {
+        if (!$this->diets->contains($diet)) {
+            $this->diets[] = $diet;
+            $diet->addRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDiet(Diet $diet): self
+    {
+        if ($this->diets->removeElement($diet)) {
+            $diet->removeRecipe($this);
+        }
 
         return $this;
     }
