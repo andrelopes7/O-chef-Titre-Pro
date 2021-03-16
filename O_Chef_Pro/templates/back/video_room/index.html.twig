@@ -1,43 +1,33 @@
 {% extends 'back/base.html.twig' %}
 
-{% block title %}VideoRoom index{% endblock %}
+{% block title %}Liste des Medias{% endblock %}
 
 {% block body %}
-    <h1>VideoRoom index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Link</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for video_room in video_rooms %}
-            <tr>
-                <td>{{ video_room.id }}</td>
-                <td>{{ video_room.name }}</td>
-                <td>{{ video_room.description }}</td>
-                <td>{{ video_room.link }}</td>
-                <td>{{ video_room.createdAt ? video_room.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ video_room.updatedAt ? video_room.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('admin_video_room_show', {'id': video_room.id}) }}">show</a>
-                    <a href="{{ path('admin_video_room_edit', {'id': video_room.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('admin_video_room_new') }}">Create new</a> <a href="{{ path('homepage') }}">back to homepage</a>
+<h1> Liste des Medias</h1>
+
+
+<br>
+
+<div class="d-grid gap-2 col-4 mx-auto">
+ <button type="button" class="btn btn-outline-dark"><a href="{{ path('admin_video_room_new') }}">Créer un nouveau Media </a></button>
+</div>
+
+<br>
+
+<div class="container">
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
+
+    {% for video_room in video_rooms %}
+  <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('admin_video_room_show', {id : video_room.id}) }}">{{ video_room.name }}</a></li></div>
+    {% endfor %}
+     
+   </div>
+</div>
+
+<br>
+ 
+<a href="{{ path('homepage') }}">Back to homepage</a>
+
 {% endblock %}

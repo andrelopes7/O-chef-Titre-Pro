@@ -15,6 +15,7 @@ class IngredientType extends AbstractType
             ->add('name')
             ->add('picture')
             ->add('description')
+            ->add('type')
             ->add('recipes')
             ->add('user')
             ->add('blog')

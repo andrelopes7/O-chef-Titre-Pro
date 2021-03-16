@@ -1,43 +1,33 @@
 {% extends 'back/base.html.twig' %}
 
-{% block title %}Country index{% endblock %}
+{% block title %}Liste des Pays{% endblock %}
 
 {% block body %}
-    <h1>Country index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Picture</th>
-                <th>Description</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for country in countries %}
-            <tr>
-                <td>{{ country.id }}</td>
-                <td>{{ country.name }}</td>
-                <td>{{ country.picture }}</td>
-                <td>{{ country.description }}</td>
-                <td>{{ country.createdAt ? country.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ country.updatedAt ? country.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('admin_country_show', {'id': country.id}) }}">show</a>
-                    <a href="{{ path('admin_country_edit', {'id': country.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('admin_country_new') }}">Create new</a>  <a href="{{ path('homepage') }}">back to homepage</a>
+<h1> Liste des Pays</h1>
+
+
+<br>
+
+<div class="d-grid gap-2 col-4 mx-auto">
+ <button type="button" class="btn btn-outline-dark"><a href="{{ path('admin_country_new') }}">Créer un nouveau Pays</a></button>
+</div>
+
+<br>
+
+<div class="container">
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
+
+    {% for country in countries %}
+  <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('admin_country_show', {id : country.id}) }}">{{ country.name }}</a></li></div>
+    {% endfor %}
+     
+   </div>
+</div>
+
+<br>
+ 
+<a href="{{ path('homepage') }}">Back to homepage</a>
+
 {% endblock %}

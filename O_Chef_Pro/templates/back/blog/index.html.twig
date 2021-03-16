@@ -1,43 +1,33 @@
 {% extends 'back/base.html.twig' %}
 
-{% block title %}Blog index{% endblock %}
+{% block title %}Liste des Articles{% endblock %}
 
 {% block body %}
-    <h1>Blog index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Media</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for blog in blogs %}
-            <tr>
-                <td>{{ blog.id }}</td>
-                <td>{{ blog.title }}</td>
-                <td>{{ blog.content }}</td>
-                <td>{{ blog.media }}</td>
-                <td>{{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('admin_blog_show', {'id': blog.id}) }}">show</a>
-                    <a href="{{ path('admin_blog_edit', {'id': blog.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('admin_blog_new') }}">Create new</a> <a href="{{ path('homepage') }}">back to homepage</a>
+<h1> Liste des Articles</h1>
+
+
+<br>
+
+<div class="d-grid gap-2 col-4 mx-auto">
+ <button type="button" class="btn btn-outline-dark"><a href="{{ path('admin_blog_new') }}">Créer un nouvel Article</a></button>
+</div>
+
+<br>
+
+<div class="container">
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
+
+    {% for blog in blogs %}
+  <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('admin_blog_show', {id : blog.id}) }}">{{ blog.name }}</a></li></div>
+    {% endfor %}
+     
+   </div>
+</div>
+
+<br>
+ 
+<a href="{{ path('homepage') }}">Back to homepage</a>
+
 {% endblock %}

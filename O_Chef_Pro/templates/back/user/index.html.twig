@@ -1,49 +1,33 @@
 {% extends 'back/base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}Liste des Utilisateurs{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Role</th>
-                <th>Picture</th>
-                <th>Last_login</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.role ? user.role|json_encode : '' }}</td>
-                <td>{{ user.picture }}</td>
-                <td>{{ user.lastLogin ? user.lastLogin|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td> 
-                <td>
-                    <a href="{{ path('admin_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('admin_user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('admin_user_new') }}">Create new</a> <a href="{{ path('homepage') }}">back to homepage</a>
+<h1> Liste des Utilisateurs</h1>
+
+
+<br>
+
+<div class="d-grid gap-2 col-4 mx-auto">
+ <button type="button" class="btn btn-outline-dark"><a href="{{ path('admin_user_new') }}">Créer un nouveau Cours </a></button>
+</div>
+
+<br>
+
+<div class="container">
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
+
+    {% for user in users %}
+  <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('admin_user_show', {id : user.id}) }}">{{ user.name }}</a></li></div>
+    {% endfor %}
+     
+   </div>
+</div>
+
+<br>
+ 
+<a href="{{ path('homepage') }}">Back to homepage</a>
+
 {% endblock %}

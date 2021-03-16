@@ -1,43 +1,33 @@
 {% extends 'back/base.html.twig' %}
 
-{% block title %}Type index{% endblock %}
+{% block title %}Liste des Types D'aliments{% endblock %}
 
 {% block body %}
-    <h1>Type index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>Picture</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for type in types %}
-            <tr>
-                <td>{{ type.id }}</td>
-                <td>{{ type.name }}</td>
-                <td>{{ type.description }}</td>
-                <td>{{ type.createdAt ? type.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ type.updatedAt ? type.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ type.picture }}</td>
-                <td>
-                    <a href="{{ path('admin_type_show', {'id': type.id}) }}">show</a>
-                    <a href="{{ path('admin_type_edit', {'id': type.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('admin_type_new') }}">Create new</a> <a href="{{ path('homepage') }}">back to homepage</a>
+<h1> Liste des Types d'aliments</h1>
+
+
+<br>
+
+<div class="d-grid gap-2 col-4 mx-auto">
+ <button type="button" class="btn btn-outline-dark"><a href="{{ path('admin_type_new') }}">Créer un nouveau Type Alimentaire </a></button>
+</div>
+
+<br>
+
+<div class="container">
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
+
+    {% for type in types %}
+  <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('admin_type_show', {id : type.id}) }}">{{ type.name }}</a></li></div>
+    {% endfor %}
+     
+   </div>
+</div>
+
+<br>
+ 
+<a href="{{ path('homepage') }}">Back to homepage</a>
+
 {% endblock %}

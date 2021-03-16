@@ -1,51 +1,33 @@
 {% extends 'back/base.html.twig' %}
 
-{% block title %}Recipe index{% endblock %}
+{% block title %}Liste des Recettes{% endblock %}
 
 {% block body %}
-    <h1>Recipe index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Picture</th>
-                <th>Time</th>
-                <th>Portions</th>
-                <th>Danger_level</th>
-                <th>Difficult</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for recipe in recipes %}
-            <tr>
-                <td>{{ recipe.id }}</td>
-                <td>{{ recipe.name }}</td>
-                <td>{{ recipe.description }}</td>
-                <td>{{ recipe.picture }}</td>
-                <td>{{ recipe.time }}</td>
-                <td>{{ recipe.portions }}</td>
-                <td>{{ recipe.dangerLevel }}</td>
-                <td>{{ recipe.difficult }}</td>
-                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('admin_recipe_show', {'id': recipe.id}) }}">show</a>
-                    <a href="{{ path('admin_recipe_edit', {'id': recipe.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('admin_recipe_new') }}">Create new</a> <a href="{{ path('homepage') }}">back to homepage</a>
+<h1> Liste des Recettes</h1>
+
+
+<br>
+
+<div class="d-grid gap-2 col-4 mx-auto">
+ <button type="button" class="btn btn-outline-dark"><a href="{{ path('admin_recipe_new') }}">Créer un nouvelle Recette </a></button>
+</div>
+
+<br>
+
+<div class="container">
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
+
+    {% for recipe in recipes %}
+  <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('admin_recipe_show', {id : recipe.id}) }}">{{ recipe.name }}</a></li></div>
+    {% endfor %}
+     
+   </div>
+</div>
+
+<br>
+ 
+<a href="{{ path('homepage') }}">Back to homepage</a>
+
 {% endblock %}

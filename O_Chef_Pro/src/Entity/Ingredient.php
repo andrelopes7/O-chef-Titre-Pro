@@ -60,6 +60,11 @@ class Ingredient
      */
     private $blog;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Type::class, inversedBy="ingredients")
+     */
+    private $type;
+
     public function __construct()
     {
         $this->recipes = new ArrayCollection();
@@ -190,6 +195,18 @@ class Ingredient
     public function removeBlog(Blog $blog): self
     {
         $this->blog->removeElement($blog);
+
+        return $this;
+    }
+
+    public function getType(): ?Type
+    {
+        return $this->type;
+    }
+
+    public function setType(?Type $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
