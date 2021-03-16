@@ -36,6 +36,10 @@ class IngredientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $ingredient->setCreatedAt(new \datetime());
+            $ingredient->setUpdatedAt(new \datetime());
+
             $entityManager->persist($ingredient);
             $entityManager->flush();
 

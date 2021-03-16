@@ -4,7 +4,10 @@ namespace App\Form;
 
 use App\Entity\Recipe;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RecipeType extends AbstractType
@@ -12,15 +15,30 @@ class RecipeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('description')
+            ->add('name', TextType::class, [
+                'label' => 'Nom de recette',
+                ])
+            ->add('description', TextareaType::class, [
+                'label' => 'Etapes :'
+                ])
             ->add('picture')
-            ->add('time')
-            ->add('portions')
-            ->add('danger_level')
-            ->add('difficult')
-            ->add('created_at')
-            ->add('updated_at')
+
+            ->add('pictureFile', VichImageType::class, [
+                'label' => 'Image de Recette',
+                'required' => true,
+            ])
+            ->add('time', TextType::class, [
+                'label' => 'Temps Total  :'
+            ])
+            ->add('portions', TextType::class, [
+                'label' => 'Portions',
+            ])
+            ->add('danger_level', TextType::class, [
+                'label' => 'Niveau de Danger',
+            ])
+            ->add('difficult', TextType::class, [
+                'label' => 'Difficulté', 
+                ])
             ->add('categories')
             ->add('diets')
             ->add('ingredients')

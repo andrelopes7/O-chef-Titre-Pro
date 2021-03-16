@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 
 /**
  * @Route("/admin/user")
@@ -28,7 +30,7 @@ class UserController extends AbstractController
     /**
      * @Route("/new", name="admin_user_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -36,6 +38,22 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $user->setCreatedAt(new \datetime());
+            $user->setUpdatedAt(new \datetime());
+
+           /*  // récupérer le mot de passe en clair
+            $rawPassword = $request->request->get('user')['password'];
+
+            if (! empty($rawPassword))
+            {
+                // l'encoder
+                $encodedPassword = $passwordEncoder->encodePassword($user, $rawPassword);
+            
+                // le renseigner dans l'objet
+                $user->setPassword($encodedPassword);
+            }
+ */
             $entityManager->persist($user);
             $entityManager->flush();
 

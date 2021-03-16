@@ -15,8 +15,6 @@ class VideoRoomType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('link')
-            ->add('created_at')
-            ->add('updated_at')
             ->add('recipe')
         ;
     }

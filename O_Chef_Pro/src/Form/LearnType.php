@@ -16,8 +16,6 @@ class LearnType extends AbstractType
             ->add('description')
             ->add('picture')
             ->add('link')
-            ->add('created_at')
-            ->add('updated_at')
             ->add('recipes')
         ;
     }

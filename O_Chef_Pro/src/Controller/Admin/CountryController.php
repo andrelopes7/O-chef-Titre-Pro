@@ -36,6 +36,10 @@ class CountryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $country->setCreatedAt(new \datetime());
+            $country->setUpdatedAt(new \datetime());
+
             $entityManager->persist($country);
             $entityManager->flush();
 

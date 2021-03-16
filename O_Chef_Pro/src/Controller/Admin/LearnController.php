@@ -36,6 +36,10 @@ class LearnController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $learn->setCreatedAt(new \datetime());
+            $learn->setUpdatedAt(new \datetime());
+
             $entityManager->persist($learn);
             $entityManager->flush();
 

@@ -15,8 +15,6 @@ class DietType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('picture')
-            ->add('created_at')
-            ->add('updated_at')
             ->add('users')
         ;
     }

@@ -36,6 +36,10 @@ class DietController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $diet->setCreatedAt(new \datetime());
+            $diet->setUpdatedAt(new \datetime());
+
             $entityManager->persist($diet);
             $entityManager->flush();
 

@@ -15,8 +15,7 @@ class CountryType extends AbstractType
             ->add('name')
             ->add('picture')
             ->add('description')
-            ->add('created_at')
-            ->add('updated_at')
+           
         ;
     }
 

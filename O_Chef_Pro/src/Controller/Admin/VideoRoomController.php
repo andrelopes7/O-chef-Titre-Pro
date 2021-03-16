@@ -36,6 +36,10 @@ class VideoRoomController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $videoRoom->setCreatedAt(new \datetime());
+            $videoRoom->setUpdatedAt(new \datetime());
+
             $entityManager->persist($videoRoom);
             $entityManager->flush();
 

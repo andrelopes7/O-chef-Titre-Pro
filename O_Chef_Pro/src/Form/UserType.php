@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class UserType extends AbstractType
 {
@@ -13,13 +15,13 @@ class UserType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('email')
+            ->add('email', EmailType::class , [
+                'label' => 'Email',
+            ])
             ->add('password')
             ->add('role')
             ->add('picture')
-            ->add('last_login')
-            ->add('created_at')
-            ->add('updated_at')
+            /* ->add('last_login') */
             ->add('diet')
         ;
     }

@@ -5,10 +5,13 @@ namespace App\Entity;
 use App\Repository\RecipeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=RecipeRepository::class)
+ * @Vich\Uploadable
  */
 class Recipe
 {
@@ -28,6 +31,15 @@ class Recipe
      * @ORM\Column(type="string", length=255)
      */
     private $description;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * 
+     * @Vich\UploadableField(mapping="recipes", fileNameProperty="picture")
+     * 
+     * @var File|null
+     */
+    private $pictureFile;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -410,4 +422,19 @@ class Recipe
 
         return $this;
     }
+
+    public function setPictureFile(?File $pictureFile = null): void
+    {
+        $this->pictureFile = $pictureFile;
+
+        if (null !== $pictureFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+   
 }

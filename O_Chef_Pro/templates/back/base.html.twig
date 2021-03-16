@@ -24,7 +24,7 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark" style ="background-color: #49070d;" >
       <div class="container-fluid">
           <a class="navbar-brand" href="{{ path('homepage') }}">O'Chef</a>
 
@@ -71,7 +71,15 @@
               <a class="nav-link {% block menu_post %}{% endblock %}" href="{{ path('admin_post_index') }}">Commentaires</a>
               </li>
           </ul>
+
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+         </form>
+
           </div>
+
+
           <div class="text-white px-2 text-nowrap">
 
             {# <a href="{{ path('admin_user_edit', {id: app.user.id}) }}">{{ app.user.username }}</a> ( {{ app.user.displayRole }} ) #}
@@ -86,7 +94,7 @@
     </nav>
 
     <main class="container">
-    <div class="bg-light p-5 rounded">
+    
         {% for label, messages in app.flashes %}
             {% for message in messages %}
                 <div class="alert alert-{{ label }}">
@@ -95,7 +103,7 @@
             {% endfor %}
         {% endfor %}
       
-    </div>
+    
     </main>
 
 
@@ -103,6 +111,12 @@
     {% block javascripts %}{% endblock %} 
 
   {% block body %} <h1> Bienvenue Dans le back-office O'Chef </h1> {% endblock %} 
+
+  {% block footer %} 
+                      <div class="card text-center"> 
+                      <a class="card-footer text-muted " href="{{ path('homepage') }}">O'CHEF</a>
+                      </div>
+  {% endblock %}
 
   </body>
 </html>

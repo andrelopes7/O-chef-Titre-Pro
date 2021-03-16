@@ -36,6 +36,10 @@ class TypeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $type->setCreatedAt(new \datetime());
+            $type->setUpdatedAt(new \datetime());
+
             $entityManager->persist($type);
             $entityManager->flush();
 

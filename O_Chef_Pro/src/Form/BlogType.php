@@ -15,8 +15,6 @@ class BlogType extends AbstractType
             ->add('title')
             ->add('content')
             ->add('media')
-            ->add('created_at')
-            ->add('updated_at')
             ->add('recipes')
             ->add('user')
             ->add('ingredients')
