@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Ingredient;
 use App\Form\IngredientType;
 use App\Repository\IngredientRepository;
+use App\Repository\TypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,11 @@ class IngredientController extends AbstractController
     /**
      * @Route("/", name="admin_ingredient_index", methods={"GET"})
      */
-    public function index(IngredientRepository $ingredientRepository): Response
+    public function index(IngredientRepository $ingredientRepository, TypeRepository $typeRepository): Response
     {
         return $this->render('back/ingredient/index.html.twig', [
             'ingredients' => $ingredientRepository->findAll(),
+            'types' => $typeRepository->findAll(),
         ]);
     }
 

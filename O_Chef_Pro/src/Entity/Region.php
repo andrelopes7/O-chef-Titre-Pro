@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\CountryRepository;
+use App\Repository\RegionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CountryRepository::class)
+ * @ORM\Entity(repositoryClass=RegionRepository::class)
  */
-class Country
+class Region
 {
     /**
      * @ORM\Id
@@ -25,14 +25,14 @@ class Country
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $picture;
-
-    /**
      * @ORM\Column(type="text")
      */
     private $description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $picture;
 
     /**
      * @ORM\Column(type="datetime")
@@ -45,18 +45,13 @@ class Country
     private $updated_at;
 
     /**
-     * @ORM\OneToMany(targetEntity=Recipe::class, mappedBy="countries")
+     * @ORM\OneToMany(targetEntity=Country::class, mappedBy="region")
      */
-    private $recipes;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Region::class, inversedBy="countries")
-     */
-    private $region;
+    private $countries;
 
     public function __construct()
     {
-        $this->recipes = new ArrayCollection();
+        $this->countries = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -76,18 +71,6 @@ class Country
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -96,6 +79,18 @@ class Country
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }
@@ -125,43 +120,31 @@ class Country
     }
 
     /**
-     * @return Collection|Recipe[]
+     * @return Collection|Country[]
      */
-    public function getRecipes(): Collection
+    public function getCountries(): Collection
     {
-        return $this->recipes;
+        return $this->countries;
     }
 
-    public function addRecipe(Recipe $recipe): self
+    public function addCountry(Country $country): self
     {
-        if (!$this->recipes->contains($recipe)) {
-            $this->recipes[] = $recipe;
-            $recipe->setCountries($this);
+        if (!$this->countries->contains($country)) {
+            $this->countries[] = $country;
+            $country->setRegion($this);
         }
 
         return $this;
     }
 
-    public function removeRecipe(Recipe $recipe): self
+    public function removeCountry(Country $country): self
     {
-        if ($this->recipes->removeElement($recipe)) {
+        if ($this->countries->removeElement($country)) {
             // set the owning side to null (unless already changed)
-            if ($recipe->getCountries() === $this) {
-                $recipe->setCountries(null);
+            if ($country->getRegion() === $this) {
+                $country->setRegion(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getRegion(): ?Region
-    {
-        return $this->region;
-    }
-
-    public function setRegion(?Region $region): self
-    {
-        $this->region = $region;
 
         return $this;
     }
