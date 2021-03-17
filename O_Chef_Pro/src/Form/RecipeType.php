@@ -2,7 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Diet;
+use App\Entity\Ingredient;
+use App\Entity\Post;
 use App\Entity\Recipe;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,10 +27,10 @@ class RecipeType extends AbstractType
                 ])
             ->add('picture')
 
-            ->add('pictureFile', VichImageType::class, [
+            /* ->add('pictureFile', VichImageType::class, [
                 'label' => 'Image de Recette',
                 'required' => true,
-            ])
+            ]) */
             ->add('time', TextType::class, [
                 'label' => 'Temps Total  :'
             ])
@@ -36,12 +40,26 @@ class RecipeType extends AbstractType
             ->add('danger_level', TextType::class, [
                 'label' => 'Niveau de Danger',
             ])
+            ->add('posts')
+
             ->add('difficult', TextType::class, [
                 'label' => 'Difficulté', 
                 ])
             ->add('categories')
-            ->add('diets')
-            ->add('ingredients')
+            ->add('diets', EntityType::class, [
+                'class' => Diet::class,
+                 'label' => 'Régime Alimentaire :',
+                 'multiple' => true,
+                  'expanded' => true 
+            ])
+
+            ->add('ingredients', EntityType::class, [
+                'class' => Ingredient::class,
+                 'label' => 'Nom d\'ingredient :',
+                 'multiple' => true,
+                  'expanded' => true 
+              ])
+
             ->add('countries')
             ->add('blog')
             ->add('user')

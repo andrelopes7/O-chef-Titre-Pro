@@ -1,4 +1,21 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    
+    {{ form_row(form.user) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.picture) }}
+    {{ form_row(form.countries) }}
+    {{ form_row(form.categories) }}
+    {{ form_row(form.ingredients) }}
+    {{ form_row(form.diets) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.time) }} 
+    {{ form_row(form.portions) }}
+    {{ form_row(form.danger_level) }}
+    {{ form_row(form.difficult) }}
+    {{ form_row(form.blog) }}
+    {{ form_row(form.learn) }}
+    {{ form_row(form.video_room) }}
+    {{ form_row(form.posts) }}
+    
+    <button class="btn">{{ button_label|default('Créer') }}</button>
 {{ form_end(form) }}

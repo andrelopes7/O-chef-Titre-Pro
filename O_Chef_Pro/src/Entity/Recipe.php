@@ -32,14 +32,6 @@ class Recipe
      */
     private $description;
 
-    /**
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     * 
-     * @Vich\UploadableField(mapping="recipes", fileNameProperty="picture")
-     * 
-     * @var File|null
-     */
-    private $pictureFile;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -423,7 +415,7 @@ class Recipe
         return $this;
     }
 
-    public function setPictureFile(?File $pictureFile = null): void
+    /* public function setPictureFile(?File $pictureFile = null): void
     {
         $this->pictureFile = $pictureFile;
 
@@ -434,7 +426,7 @@ class Recipe
     public function getPictureFile(): ?File
     {
         return $this->pictureFile;
-    }
+    } */
 
    
 }
