@@ -1,0 +1,13 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Edit Region{% endblock %}
+
+{% block body %}
+    <h1>Edit {{ region.name }}</h1>
+
+    {{ include('back/region/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_region_index') }}">back to list</a>
+
+    {{ include('back/region/_delete_form.html.twig') }}
+{% endblock %}

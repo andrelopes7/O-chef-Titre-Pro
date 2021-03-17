@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Blog;
+use App\Entity\Ingredient;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +19,14 @@ class BlogType extends AbstractType
             ->add('media')
             ->add('recipes')
             ->add('user')
-            ->add('ingredients')
+            ->add('ingredients', EntityType::class, [
+                'class' => Ingredient::class,
+
+                 'label' => 'Nom d\'ingredient :',
+              
+                 'multiple' => true,
+                  'expanded' => true 
+              ])
         ;
     }
 

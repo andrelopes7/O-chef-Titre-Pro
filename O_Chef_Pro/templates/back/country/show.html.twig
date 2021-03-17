@@ -1,9 +1,9 @@
 {% extends 'back/base.html.twig' %}
 
-{% block title %}Country{% endblock %}
+
 
 {% block body %}
-    <h1>Country</h1>
+   {% block title %}<h1>{{ country.name }}</h1>{% endblock %}
 
     <table class="table">
         <tbody>

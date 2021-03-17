@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Country;
 use App\Form\CountryType;
 use App\Repository\CountryRepository;
+use App\Repository\RegionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,11 @@ class CountryController extends AbstractController
     /**
      * @Route("/", name="admin_country_index", methods={"GET"})
      */
-    public function index(CountryRepository $countryRepository): Response
+    public function index(CountryRepository $countryRepository, RegionRepository $regionRepository): Response
     {
         return $this->render('back/country/index.html.twig', [
             'countries' => $countryRepository->findAll(),
+            'regions' => $regionRepository->findAll()
         ]);
     }
 

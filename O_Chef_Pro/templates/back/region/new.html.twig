@@ -1,0 +1,11 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}New Region{% endblock %}
+
+{% block body %}
+    <h1>Create new Region</h1>
+
+    {{ include('back/region/_form.html.twig') }}
+
+    <a href="{{ path('admin_region_index') }}">back to list</a>
+{% endblock %}

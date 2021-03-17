@@ -1,0 +1,33 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Liste des Régions{% endblock %}
+
+{% block body %}
+
+
+<h1> Liste des Régions</h1>
+
+
+<br>
+
+<div class="d-grid gap-2 col-4 mx-auto">
+ <button type="button" class="btn btn-outline-dark"><a href="{{ path('admin_region_new') }}">Créer un nouvelle Région </a></button>
+</div>
+
+<br>
+
+<div class="container">
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
+
+    {% for region in regions %}
+  <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('admin_region_show', {id : region.id}) }}">{{ region.name }}</a></li></div>
+    {% endfor %}
+     
+   </div>
+</div>
+
+<br>
+ 
+<a href="{{ path('homepage') }}">Back to homepage</a>
+
+{% endblock %}

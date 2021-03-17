@@ -50,6 +50,9 @@
               <a class="nav-link {% block menu_category %}{% endblock %}" href="{{ path('admin_category_index') }}">Catégories</a>
               </li>
               <li class="nav-item">
+              <a class="nav-link {% block menu_region %}{% endblock %}" href="{{ path('admin_region_index') }}">Régions</a>
+              </li>
+              <li class="nav-item">
               <a class="nav-link {% block menu_country %}{% endblock %}" href="{{ path('admin_country_index') }}">Pays</a>
               </li>
               <li class="nav-item">
@@ -75,7 +78,7 @@
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-light" type="submit">Search</button>
-         </form>
+          </form>
 
           </div>
 

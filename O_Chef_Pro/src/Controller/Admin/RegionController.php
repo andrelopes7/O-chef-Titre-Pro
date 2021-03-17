@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Region;
 use App\Form\RegionType;
@@ -11,22 +11,22 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/region")
+ * @Route("/admin/region")
  */
 class RegionController extends AbstractController
 {
     /**
-     * @Route("/", name="region_index", methods={"GET"})
+     * @Route("/", name="admin_region_index", methods={"GET"})
      */
     public function index(RegionRepository $regionRepository): Response
     {
-        return $this->render('region/index.html.twig', [
+        return $this->render('back/region/index.html.twig', [
             'regions' => $regionRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/new", name="region_new", methods={"GET","POST"})
+     * @Route("/new", name="admin_region_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -36,30 +36,34 @@ class RegionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $region->setCreatedAt(new \datetime());
+            $region->setUpdatedAt(new \datetime());
+
             $entityManager->persist($region);
             $entityManager->flush();
 
-            return $this->redirectToRoute('region_index');
+            return $this->redirectToRoute('admin_region_index');
         }
 
-        return $this->render('region/new.html.twig', [
+        return $this->render('back/region/new.html.twig', [
             'region' => $region,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="region_show", methods={"GET"})
+     * @Route("/{id}", name="admin_region_show", methods={"GET"})
      */
     public function show(Region $region): Response
     {
-        return $this->render('region/show.html.twig', [
+        return $this->render('back/region/show.html.twig', [
             'region' => $region,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="region_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="admin_region_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Region $region): Response
     {
@@ -67,19 +71,23 @@ class RegionController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('region_index');
+            $em = $this->getDoctrine()->getManager();
+
+                $region->setUpdatedAt(new \DateTime());
+                $em->flush();
+
+            return $this->redirectToRoute('admin_region_index');
         }
 
-        return $this->render('region/edit.html.twig', [
+        return $this->render('back/region/edit.html.twig', [
             'region' => $region,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="region_delete", methods={"DELETE"})
+     * @Route("/{id}", name="admin_region_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Region $region): Response
     {
@@ -89,6 +97,6 @@ class RegionController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('region_index');
+        return $this->redirectToRoute('admin_region_index');
     }
 }

@@ -71,6 +71,7 @@ class Blog
         $this->ingredients = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
