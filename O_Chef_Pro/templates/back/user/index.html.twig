@@ -20,7 +20,16 @@
 <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
 
     {% for user in users %}
-  <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('admin_user_show', {id : user.id}) }}">{{ user.name }}</a></li></div>
+
+      <div class="card" style="width: 18rem;">
+        <img src="{{user.picture}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{user.name}}</h5>
+          <p class="card-text">{{user.email}}</p>
+          <a href="{{ path('admin_user_show', {id : user.id}) }}" class="btn btn-danger">Détails</a>
+        </div>
+      </div>
+
     {% endfor %}
      
    </div>

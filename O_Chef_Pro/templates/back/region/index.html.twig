@@ -20,7 +20,15 @@
 <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
 
     {% for region in regions %}
-  <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('admin_region_show', {id : region.id}) }}">{{ region.name }}</a></li></div>
+
+   <div class="card" style="width: 18rem;">
+        <img src="{{region.picture}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{region.name}}</h5>
+          <a href="{{ path('admin_region_show', {id : region.id}) }}" class="btn btn-danger">Détails</a>
+        </div>
+      </div>
+
     {% endfor %}
      
    </div>

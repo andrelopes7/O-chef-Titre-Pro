@@ -20,7 +20,15 @@
 <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
 
     {% for blog in blogs %}
-  <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('admin_blog_show', {id : blog.id}) }}">{{ blog.title }}</a></li></div>
+
+    <div class="card" style="width: 18rem;">
+        <img src="{{blog.media}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{blog.title}}</h5>
+          <a href="{{ path('admin_blog_show', {id : blog.id}) }}" class="btn btn-danger">Détails</a>
+        </div>
+      </div>
+
     {% endfor %}
      
    </div>

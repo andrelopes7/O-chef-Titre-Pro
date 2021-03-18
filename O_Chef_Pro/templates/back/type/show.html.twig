@@ -3,7 +3,7 @@
 {% block title %}Type{% endblock %}
 
 {% block body %}
-    <h1>Type</h1>
+    <h1>{{ type.name }}</h1>
 
     <table class="table">
         <tbody>
@@ -18,6 +18,13 @@
             <tr>
                 <th>Description</th>
                 <td>{{ type.description }}</td>
+            </tr>
+            <tr>
+                <th>Ingrédients</th>
+                <td>{% for ingredients in type.ingredients %}
+                        <a href="{{ path('admin_ingredient_show', {id : ingredients.id}) }}">{{ ingredients.name }}</a>
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
                 <th>Created_at</th>
