@@ -30,6 +30,7 @@ class BlogController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
         $blog = new Blog();
         $form = $this->createForm(BlogType::class, $blog);
         $form->handleRequest($request);
@@ -57,6 +58,7 @@ class BlogController extends AbstractController
      */
     public function show(Blog $blog): Response
     {
+
         return $this->render('back/blog/show.html.twig', [
             'blog' => $blog,
         ]);
@@ -67,6 +69,7 @@ class BlogController extends AbstractController
      */
     public function edit(Request $request, Blog $blog): Response
     {
+
         $form = $this->createForm(BlogType::class, $blog);
         $form->handleRequest($request);
 
@@ -87,6 +90,7 @@ class BlogController extends AbstractController
      */
     public function delete(Request $request, Blog $blog): Response
     {
+
         if ($this->isCsrfTokenValid('delete'.$blog->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($blog);

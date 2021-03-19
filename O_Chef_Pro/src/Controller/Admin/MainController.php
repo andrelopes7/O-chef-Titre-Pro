@@ -18,7 +18,6 @@ class MainController extends AbstractController
      */
     public function homepage(RecipeRepository $RecipeRepository): Response
     {
-
        
         $allRecipe= $RecipeRepository->findBy([], ['name' => 'ASC']);
         return $this->render('back/main/homepage.html.twig', [

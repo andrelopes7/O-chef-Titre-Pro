@@ -44,7 +44,6 @@ class UserController extends AbstractController
 
            /*  // récupérer le mot de passe en clair
             $rawPassword = $request->request->get('user')['password'];
-
             if (! empty($rawPassword))
             {
                 // l'encoder
