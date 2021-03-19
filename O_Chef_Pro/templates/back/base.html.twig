@@ -25,15 +25,16 @@
 <div class="wrapper">
 
     <!-- Sidebar -->
-    <nav id="sidebar" style ="background-color: #49070d;" >
-        
-            <h1><a class="navbar-brand" href="{{ path('homepage') }}" style="color: white"><strong>O'Chef</strong></a></h1>
+    <nav id="sidebar">
+
+
+            <h1><a class="navbar-brand" href="{{ path('homepage') }}" style="color: white;"><strong>O'Chef</strong></a></h1>
 
 <ul class="list-unstyled components">
 
         <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Search</button>
+            <button class="btn btn-outline-dark" type="submit">Search</button>
           </form>
 
             <li class="nav-item">
@@ -41,10 +42,12 @@
             </li>
 
               <li class="nav-item">
+                
               <a class="nav-link {% block menu_recipe %}{% endblock %}" href="{{ path('admin_recipe_index') }}" style="color: white">Recettes</a>
               </li>
 
               <li class="nav-item">
+                
               <a class="nav-link {% block menu_ingredient %}{% endblock %}" href="{{ path('admin_ingredient_index') }}"style="color: white">Ingrédients</a>
               </li>
 

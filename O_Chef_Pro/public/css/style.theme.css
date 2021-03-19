@@ -5,6 +5,7 @@
     width: 100%;
 }
 
+
 .body_block {
     text-align: center;
      width: 100%;
@@ -15,10 +16,15 @@
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
+    background-image: url("../images/back/edgar-castrejon-s6BrlKXy7e0-unsplash.jpg");
 }
 
 #sidebar.active {
     margin-left: -250px;
+}
+
+.navbar-brand{
+    font-size: xx-large;
 }
 
 @media (max-width: 768px) {
@@ -29,3 +35,4 @@
         margin-left: 0;
     }
 }
+
