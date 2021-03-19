@@ -55,11 +55,6 @@ class Blog
     private $post;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="blogs")
-     */
-    private $user;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Ingredient::class, mappedBy="blog")
      */
     private $ingredients;
@@ -199,17 +194,6 @@ class Blog
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Ingredient[]

@@ -95,11 +95,6 @@ class Recipe
      */
     private $blog;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recipes")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
 
     /**
      * @ORM\ManyToMany(targetEntity=Learn::class, inversedBy="recipes")
@@ -340,17 +335,6 @@ class Recipe
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Learn[]

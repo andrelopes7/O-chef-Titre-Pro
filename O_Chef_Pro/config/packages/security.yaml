@@ -1,13 +1,18 @@
 security:
 
 
+    encoders:
+        App\Entity\Utilisateur:
+            algorithm: auto
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\User
+                class: App\Entity\Utilisateur
                 property: email
+        # used to reload user from session & other features (e.g. switch_user)
         
 
     firewalls:
@@ -18,6 +23,13 @@ security:
             anonymous: true
             lazy: true
             provider: app_user_provider
+            guard:
+                authenticators:
+                    - App\Security\LoginAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
            
 
     # Easy way to control access for large sections of your site
