@@ -42,17 +42,6 @@ class UserController extends AbstractController
             $user->setCreatedAt(new \datetime());
             $user->setUpdatedAt(new \datetime());
 
-           /*  // récupérer le mot de passe en clair
-            $rawPassword = $request->request->get('user')['password'];
-            if (! empty($rawPassword))
-            {
-                // l'encoder
-                $encodedPassword = $passwordEncoder->encodePassword($user, $rawPassword);
-            
-                // le renseigner dans l'objet
-                $user->setPassword($encodedPassword);
-            }
- */
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -95,7 +84,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    /**
+     /**
      * @Route("/{id}", name="admin_user_delete", methods={"DELETE"})
      */
     public function delete(Request $request, User $user): Response
@@ -107,5 +96,5 @@ class UserController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_user_index');
-    }
+    } 
 }

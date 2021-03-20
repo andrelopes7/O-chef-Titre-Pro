@@ -32,9 +32,8 @@
 
 <ul class="list-unstyled components">
 
-<div class="text-white text-nowrap">
 
-      </div> 
+          <br>
 
         <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -90,6 +89,12 @@
                <li class="nav-item">
               <a class="nav-link {% block menu_post %}{% endblock %}" href="{{ path('admin_post_index') }}"style="color: white">Commentaires</a>
               </li>
+
+<br>
+
+          <div class="text-white text-nowrap">
+            <a href="{{  path('app_logout') }}" class="btn btn-secondary">Déconnexion ! </a>
+          </div>
 
           </ul>
 

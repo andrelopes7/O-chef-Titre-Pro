@@ -42,17 +42,6 @@ class UtilisateurController extends AbstractController
             $user->setCreatedAt(new \datetime());
             $user->setUpdatedAt(new \datetime());
 
-           /*  // récupérer le mot de passe en clair
-            $rawPassword = $request->request->get('user')['password'];
-            if (! empty($rawPassword))
-            {
-                // l'encoder
-                $encodedPassword = $passwordEncoder->encodePassword($user, $rawPassword);
-            
-                // le renseigner dans l'objet
-                $user->setPassword($encodedPassword);
-            }
- */
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -84,7 +73,13 @@ class UtilisateurController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $user->setCreatedAt(new \datetime());
+            $user->setUpdatedAt(new \datetime());
+
+            $entityManager->persist($user);
+            $entityManager->flush();
 
             return $this->redirectToRoute('admin_user_index');
         }

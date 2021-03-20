@@ -102,6 +102,11 @@ class Utilisateur implements UserInterface
         $this->diet = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->email;
+    }
+
 
     public function getEmail(): ?string
     {

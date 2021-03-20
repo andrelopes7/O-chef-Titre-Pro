@@ -18,7 +18,7 @@ class BlogType extends AbstractType
             ->add('content')
             ->add('media')
             ->add('recipes')
-            ->add('user')
+            ->add('utilisateur')
             ->add('ingredients', EntityType::class, [
                 'class' => Ingredient::class,
 

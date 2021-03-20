@@ -62,7 +62,7 @@ class RecipeType extends AbstractType
 
             ->add('countries')
             ->add('blog')
-            ->add('user')
+            ->add('utilisateur')
             ->add('learn')
             ->add('video_room')
         ;
