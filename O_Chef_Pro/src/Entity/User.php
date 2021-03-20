@@ -95,11 +95,7 @@ class User implements UserInterface
        return $this->name;
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
+   
     public function getName(): ?string
     {
         return $this->name;
@@ -236,36 +232,7 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Recipe[]
-     */
-    public function getRecipes(): Collection
-    {
-        return $this->recipes;
-    }
-
-    public function addRecipe(Recipe $recipe): self
-    {
-        if (!$this->recipes->contains($recipe)) {
-            $this->recipes[] = $recipe;
-            $recipe->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRecipe(Recipe $recipe): self
-    {
-        if ($this->recipes->removeElement($recipe)) {
-            // set the owning side to null (unless already changed)
-            if ($recipe->getUser() === $this) {
-                $recipe->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
+   
     /**
      * @return Collection|Blog[]
      */

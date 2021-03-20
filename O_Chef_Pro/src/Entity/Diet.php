@@ -54,10 +54,16 @@ class Diet
      */
     private $recipe;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Utilisateur::class, mappedBy="diet")
+     */
+    private $utilisateurs;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
         $this->recipe = new ArrayCollection();
+        $this->utilisateurs = new ArrayCollection();
     }
 
     public function __toString()
@@ -177,6 +183,33 @@ class Diet
     public function removeRecipe(Recipe $recipe): self
     {
         $this->recipe->removeElement($recipe);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Utilisateur[]
+     */
+    public function getUtilisateurs(): Collection
+    {
+        return $this->utilisateurs;
+    }
+
+    public function addUtilisateur(Utilisateur $utilisateur): self
+    {
+        if (!$this->utilisateurs->contains($utilisateur)) {
+            $this->utilisateurs[] = $utilisateur;
+            $utilisateur->addDiet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUtilisateur(Utilisateur $utilisateur): self
+    {
+        if ($this->utilisateurs->removeElement($utilisateur)) {
+            $utilisateur->removeDiet($this);
+        }
 
         return $this;
     }

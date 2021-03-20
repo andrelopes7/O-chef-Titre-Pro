@@ -118,7 +118,12 @@
 
  <div class="body_block">
 
-  {% block body %}<h1> Bienvenue Dans le back-office O'Chef </h1>{% endblock %} 
+  {% block body %}
+  <h1> Bienvenue Dans le back-office O'Chef </h1>
+          <div class="text-white text-nowrap">
+            <a href="{{  path('app_logout') }}" class="btn btn-primary">Déconnexion ! </a>
+          </div>
+  {% endblock %} 
   
 
 </div> 

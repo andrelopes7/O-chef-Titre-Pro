@@ -60,10 +60,16 @@ class Ingredient
      */
     private $type;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Utilisateur::class, mappedBy="ingredients")
+     */
+    private $utilisateurs;
+
     public function __construct()
     {
         $this->recipes = new ArrayCollection();
         $this->blog = new ArrayCollection();
+        $this->utilisateurs = new ArrayCollection();
     }
 
     public function __toString()
@@ -196,6 +202,33 @@ class Ingredient
     public function setType(?Type $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Utilisateur[]
+     */
+    public function getUtilisateurs(): Collection
+    {
+        return $this->utilisateurs;
+    }
+
+    public function addUtilisateur(Utilisateur $utilisateur): self
+    {
+        if (!$this->utilisateurs->contains($utilisateur)) {
+            $this->utilisateurs[] = $utilisateur;
+            $utilisateur->addIngredient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUtilisateur(Utilisateur $utilisateur): self
+    {
+        if ($this->utilisateurs->removeElement($utilisateur)) {
+            $utilisateur->removeIngredient($this);
+        }
 
         return $this;
     }

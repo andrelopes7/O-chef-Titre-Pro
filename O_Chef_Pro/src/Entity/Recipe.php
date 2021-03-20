@@ -111,6 +111,11 @@ class Recipe
      */
     private $diets;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Utilisateur::class, inversedBy="recipes")
+     */
+    private $utilisateur;
+
     public function __construct()
     {
         $this->ingredients = new ArrayCollection();
@@ -411,6 +416,18 @@ class Recipe
     {
         return $this->pictureFile;
     } */
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): self
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
 
    
 }

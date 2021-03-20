@@ -59,6 +59,11 @@ class Blog
      */
     private $ingredients;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Utilisateur::class, inversedBy="blog")
+     */
+    private $utilisateur;
+
     public function __construct()
     {
         $this->recipes = new ArrayCollection();
@@ -218,6 +223,18 @@ class Blog
         if ($this->ingredients->removeElement($ingredient)) {
             $ingredient->removeBlog($this);
         }
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): self
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }

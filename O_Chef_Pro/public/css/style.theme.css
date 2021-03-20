@@ -36,3 +36,22 @@
     }
 }
 
+.form-inline{
+    width: 150em;
+    height: 62em;
+    align-items: center;
+    background-image: url("../images/back/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+    background-size: 100% ; 
+    text-align: center;
+}
+
+.form-inline h1{
+    color: white;
+    font-size: xx-large;
+}
+
+.input_form{
+    position: absolute;
+    top: 200px; left: 60em ;
+}
+

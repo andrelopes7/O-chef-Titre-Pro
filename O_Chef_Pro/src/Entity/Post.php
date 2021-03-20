@@ -58,6 +58,11 @@ class Post
      */
     private $videoRoom;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Utilisateur::class, inversedBy="post")
+     */
+    private $utilisateur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -155,6 +160,18 @@ class Post
     public function setVideoRoom(?VideoRoom $videoRoom): self
     {
         $this->videoRoom = $videoRoom;
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): self
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
