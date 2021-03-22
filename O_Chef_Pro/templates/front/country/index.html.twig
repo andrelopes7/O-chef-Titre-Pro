@@ -1,0 +1,45 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Liste des Pays{% endblock %}
+
+{% block body %}
+
+
+<h1> Liste des Pays</h1>
+
+
+<br>
+
+<div class="d-grid gap-2 col-4 mx-auto">
+ <button type="button" class="btn btn-outline-dark"><a href="{{ path('country_new') }}">Créer un nouveau Pays</a></button>
+</div>
+
+<br>
+
+<div class="container">
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
+
+
+{% for region in regions %}
+<button class="btn dropdown-toggle btn-outline-dark" region="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="true">
+  <div class="btn "><li class="list-group-item"><a href="{{ path('region_show', {id : region.id}) }}">{{ region.name }}</a></li></div>
+</button>
+ 
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+ 
+   {% for regionCountry in region.countries %}
+    <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('country_show', {id : regionCountry.id }) }}">{{ regionCountry.name }} 
+  </a></li></div> 
+   {% endfor %}   
+
+</ul>
+   {% endfor %}
+   </div>
+</div>
+
+
+<br>
+ 
+<a href="{{ path('homepage') }}">Back to homepage</a>
+
+{% endblock %}

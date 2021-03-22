@@ -26,29 +26,6 @@ class TypeController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="type_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $type = new Type();
-        $form = $this->createForm(TypeType::class, $type);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($type);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('type_index');
-        }
-
-        return $this->render('front/type/new.html.twig', [
-            'type' => $type,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="type_show", methods={"GET"})
      */
     public function show(Type $type): Response
@@ -58,37 +35,4 @@ class TypeController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/edit", name="type_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Type $type): Response
-    {
-        $form = $this->createForm(TypeType::class, $type);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('type_index');
-        }
-
-        return $this->render('front/type/edit.html.twig', [
-            'type' => $type,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="type_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Type $type): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$type->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($type);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('type_index');
-    }
 }

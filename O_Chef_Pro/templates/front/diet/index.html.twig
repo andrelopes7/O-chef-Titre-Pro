@@ -1,0 +1,41 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Liste des Régimes Alimentaires{% endblock %}
+
+{% block body %}
+
+
+<h1> Liste des Régimes Alimentaires</h1>
+
+
+<br>
+
+<div class="d-grid gap-2 col-4 mx-auto">
+ <button type="button" class="btn btn-outline-dark"><a href="{{ path('diet_new') }}">Créer un nouveau Régime Alimentaire </a></button>
+</div>
+
+<br>
+
+<div class="container">
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
+
+    {% for diet in diets %}
+
+    <div class="card" style="width: 18rem;">
+        <img src="{{diet.picture}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{diet.name}}</h5>
+          <a href="{{ path('diet_show', {id : diet.id}) }}" class="btn btn-danger">Détails</a>
+        </div>
+      </div>
+
+    {% endfor %}
+     
+   </div>
+</div>
+
+<br>
+ 
+<a href="{{ path('homepage') }}">Back to homepage</a>
+
+{% endblock %}

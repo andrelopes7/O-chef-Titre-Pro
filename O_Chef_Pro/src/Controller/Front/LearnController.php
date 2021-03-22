@@ -26,29 +26,6 @@ class LearnController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="learn_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $learn = new Learn();
-        $form = $this->createForm(LearnType::class, $learn);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($learn);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('learn_index');
-        }
-
-        return $this->render('front/learn/new.html.twig', [
-            'learn' => $learn,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="learn_show", methods={"GET"})
      */
     public function show(Learn $learn): Response
@@ -58,37 +35,4 @@ class LearnController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/edit", name="learn_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Learn $learn): Response
-    {
-        $form = $this->createForm(LearnType::class, $learn);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('learn_index');
-        }
-
-        return $this->render('front/learn/edit.html.twig', [
-            'learn' => $learn,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="learn_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Learn $learn): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$learn->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($learn);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('learn_index');
-    }
 }
