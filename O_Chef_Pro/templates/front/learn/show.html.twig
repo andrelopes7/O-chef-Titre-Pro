@@ -3,6 +3,20 @@
 {% block title %}Learn{% endblock %}
 
 {% block body %}
+
+    <div class="card bg-dark text-white">
+       <img src="../images/back/randy-tarampi-ryUVRPYhxrY-unsplash.jpg" class="img-fluid" alt="gastronomy dish">
+      <div class="card-img-overlay">
+      
+        <h1 class="card-title" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right; font-size: 5em;"><strong>Cours de Cuisine</strong></h1>
+        <h2 class="card-text" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right;"><strong>Fait par des chefs, pour des chefs</strong></h2>
+      </div>
+        <div class="input-group mb-1">
+          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 30em;">Rechercher</button>
+          <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        </div>
+    </div>
+
     <h1>Learn</h1>
 
     <table class="table">
@@ -40,7 +54,4 @@
 
     <a href="{{ path('learn_index') }}">back to list</a>
 
-    <a href="{{ path('learn_edit', {'id': learn.id}) }}">edit</a>
-
-    {{ include('front/learn/_delete_form.html.twig') }}
 {% endblock %}

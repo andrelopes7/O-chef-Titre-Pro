@@ -3,6 +3,21 @@
 {% block title %}Edit Recipe{% endblock %}
 
 {% block body %}
+
+
+    <div class="card bg-dark text-white">
+       <img src="../images/back/michael-browning-MtqG1lWcUw0-unsplash.jpg" class="img-fluid" alt="gastronomy dish">
+      <div class="card-img-overlay">
+      
+        <h1 class="card-title" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right; font-size: 5em;"><strong>La Cuisine</strong></h1>
+        <h2 class="card-text" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right;"><strong>Fait par des chefs, pour des chefs</strong></h2>
+      </div>
+        <div class="input-group mb-1">
+          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 30em;">Rechercher</button>
+          <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        </div>
+    </div>
+
     <h1>Edit Recipe</h1>
 
     {{ include('front/recipe/_form.html.twig', {'button_label': 'Update'}) }}
