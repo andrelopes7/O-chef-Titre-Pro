@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.79.0">
+    <title>O'Chef</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbar-fixed/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    
+    <!-- Custom styles for this template -->
+    
+    {% block stylesheets %}<link href="{{ asset('css/front/style.theme.css') }}" rel="stylesheet">{% endblock %}
+    <title>{% block title %}O'Chef ! {% endblock %}</title>
+
+  </head>
+
+ {% block body %}
+
+<div class="container_all">
+
+<div class="header">
+<h4><a class="btn btn-dark btn-lg" href="{{ path('app_register') }}">Inscription </a></h4>
+
+<h1><strong>O'Chef<strong></h1>
+
+<h4><a class="btn btn-dark btn-lg" href="{{ path('app_login') }}">Connexion</a></h4>
+</div>
+
+<center>
+<div class="body">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="font-weight: bolder; font-style: italic; font-family: 'Times New Roman', Times, serif" href="{{ path('homepage') }}">Accueil</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="d-flex justify-content-center" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav ">
+        
+        <li class="navbar-brand">
+              <a class="nav-link" style="font-weight: bolder; font-style: italic; font-family: 'Times New Roman', Times, serif {% block menu_recipe %}{% endblock %}" href="{{ path('recipe_index') }}" style="color: white">Cuisine</a>
+        </li>
+        <li class="navbar-brand">
+              <a class="nav-link" style="font-weight: bolder; font-style: italic; font-family: 'Times New Roman', Times, serif {% block menu_blog %}{% endblock %}" href="{{ path('blog_index') }}" style="color: white">Blog</a>
+        </li>
+         <li class="navbar-brand">
+              <a class="nav-link" style="font-weight: bolder; font-style: italic; font-family: 'Times New Roman', Times, serif {% block menu_learn %}{% endblock %}" href="{{ path('learn_index') }}" style="color: white">Leçons</a>
+        </li>
+        <li class="navbar-brand">
+              <a class="nav-link" style="font-weight: bolder; font-style: italic; font-family: 'Times New Roman', Times, serif {% block menu_video_room %}{% endblock %}" href="{{ path('video_room_index') }}" style="color: white">Video Room</a>
+        </li>
+        <li class="navbar-brand">
+              <a class="navbar-brand" style="font-weight: bolder; font-style: italic; font-family: 'Times New Roman', Times, serif" href="">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="card bg-dark text-white">
+       <img src="../images/back/aaron-blanco-tejedor-I0xbweg06KU-unsplash.jpg" class="img-fluid" alt="gastronomy dish">
+      <div class="card-img-overlay">
+        <h1 class="card-title" style="color: black; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left ;"><strong>Pour l'amour de la gastronomie</strong></h1>
+        <h3 class="card-text" style="color: black; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left ;">Fait par des chefs, pour des chefs</h3>
+        <h4 class="card-text" style="color: black; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left ;"> </h4>
+      </div>
+        <div class="input-group mb-1">
+          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 30em;">Rechercher</button>
+          <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        </div>
+    </div>
+
+<footer>
+    <center>
+          <h3 style="color : white; font-style: italic; font-family: 'Times New Roman', Times, serif;">O'Chef  &copy;Copyrigths</h3>
+          <h5><a href="">Contact</a></h5>
+          
+    </center>
+</footer>
+
+</div>
+</center>
+
+</div>
+
+{% endblock %} 

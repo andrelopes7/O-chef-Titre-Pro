@@ -27,6 +27,7 @@ class Recipe
      */
     private $name;
 
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -115,6 +116,11 @@ class Recipe
      * @ORM\ManyToOne(targetEntity=Utilisateur::class, inversedBy="recipes")
      */
     private $utilisateur;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $introduction;
 
     public function __construct()
     {
@@ -425,6 +431,18 @@ class Recipe
     public function setUtilisateur(?Utilisateur $utilisateur): self
     {
         $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    public function getIntroduction(): ?string
+    {
+        return $this->introduction;
+    }
+
+    public function setIntroduction(string $introduction): self
+    {
+        $this->introduction = $introduction;
 
         return $this;
     }

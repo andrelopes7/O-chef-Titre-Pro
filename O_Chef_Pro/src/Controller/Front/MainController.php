@@ -20,9 +20,9 @@ class MainController extends AbstractController
     public function homepage(RecipeRepository $RecipeRepository, BlogRepository $blogRepository, LearnRepository $learnRepository): Response
     {
        
-        $allRecipe = $RecipeRepository->findBy([], ['name' => 'ASC']);
-        $allBlog = $blogRepository->findBy([], ['name' => 'ASC']);
-        $allLearn = $learnRepository->findBy([], ['name' => 'ASC']);
+        $allRecipe = $RecipeRepository->findAll();
+        $allBlog = $blogRepository->findAll();
+        $allLearn = $learnRepository->findAll();
 
         return $this->render('front/main/homepage.html.twig', [
                 'recipe_list' => $allRecipe,

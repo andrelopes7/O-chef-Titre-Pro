@@ -22,6 +22,9 @@ class RecipeType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom de recette',
                 ])
+            ->add('introduction', TextareaType::class, [
+                    'label' => 'Quelques mots :'
+                    ])
             ->add('description', TextareaType::class, [
                 'label' => 'Etapes :'
                 ])
