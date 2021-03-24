@@ -37,7 +37,7 @@
 <div class="body">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
+  <div class="flex-sm-fill text-sm-center">
     <a class="navbar-brand" style="font-weight: bolder; font-style: italic; font-family: 'Times New Roman', Times, serif" href="{{ path('homepage') }}">Accueil</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -57,8 +57,8 @@
         <li class="navbar-brand">
               <a class="nav-link" style="font-weight: bolder; font-style: italic; font-family: 'Times New Roman', Times, serif {% block menu_video_room %}{% endblock %}" href="{{ path('video_room_index') }}" style="color: white">Video Room</a>
         </li>
-        <li class="navbar-brand">
-              <a class="navbar-brand" style="font-weight: bolder; font-style: italic; font-family: 'Times New Roman', Times, serif" href="">About</a>
+         <li class="navbar-brand">
+              <a class="nav-link" style="font-weight: bolder; font-style: italic; font-family: 'Times New Roman', Times, serif" href="" style="color: white">About</a>
         </li>
       </ul>
     </div>
@@ -66,7 +66,21 @@
 </nav>
 {% endblock %}
 
-{% block body %}{% endblock %}
+{% block body %}
+
+
+
+
+
+
+
+
+
+
+
+{# {% block script %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> {% endblock %} #}
+
+{% endblock %}
 
 {% block footer %}
 <footer>

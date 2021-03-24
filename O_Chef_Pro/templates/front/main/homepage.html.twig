@@ -11,11 +11,50 @@
         <h3 class="card-text" style="color: black; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left ;">Fait par des chefs, pour des chefs</h3>
         <h4 class="card-text" style="color: black; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left ;"> </h4>
       </div>
+
+
         <div class="input-group mb-1">
           <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 30em;">Rechercher</button>
-          <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+          <input type="text" class="form-control" id="search-user" placeholder="Faites une recherche rapide" aria-label="Example text with button addon" aria-describedby="button-addon1">
         </div>
+
     </div>
+
+    
+
+    <div style="margin-top: 20px">
+        <div id="result-search"></div>
+    </div>
+
+
+      {% block script %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+            
+            <script>
+                    $(document).ready(function(){
+                      $('#search-user').keyup(function(){
+                        $('#result-search').html('');
+                  
+                        var utilisateur = $(this).val();
+                  
+                        if(utilisateur != ""){
+                          $.ajax({
+                            type: 'GET',
+                            url: '../src/Repository/UtilisateurRepository.php',
+                            data: 'user=' + encodeURIComponent(utilisateur),
+                            success: function(data){
+                              if(data != ""){
+                                $('#result-search').append(data);
+                              }else{
+                                document.getElementById('result-search').innerHTML = "<div style='font-size: 20px; text-align: center; margin-top: 10px'>Aucun utilisateur</div>"
+                              }
+                            }
+                          });
+                        }
+                      });
+                    });
+              </script>
+
+      {% endblock %}
 
 
 {% endblock %}
