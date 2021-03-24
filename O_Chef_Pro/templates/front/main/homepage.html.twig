@@ -53,4 +53,65 @@
     </div>
 
 </div>
+
+
+<div id="recipes">
+  <h2>Recettes</h>
+    <div class="card mb-3" style="max-width: 600px; padding: 20px; margin:30px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="..." alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <div class="search-data">sel poivre chips</div>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div id="blog-articles">
+  <h2>Articles</h>
+    <div class="card mb-3" style="max-width: 600px; padding: 20px; margin:30px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="..." alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <div class="search-data">
+            {% for blog in blog_list %} 
+            {{blog.title}}
+            {% endfor %}</div>
+            <h5 class="card-title">Card title 2</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$('#search-user').keyup( function () {
+    $('#recipes .card').show();
+    $('#blog-articles .card').show();
+    var filter = $(this).val(); // get the value of the input, which we filter on
+    $('#recipes').find(".search-data:not(:contains(" + filter + "))").parent().parent().parent().parent().css('display','none');
+    $('#blog-articles').find(".search-data:not(:contains(" + filter + "))").parent().parent().parent().parent().css('display','none');
+});
+</script>
+<style>
+.search-data {
+  display: none;
+}
+</style>
+
+
+
 {% endblock %}
