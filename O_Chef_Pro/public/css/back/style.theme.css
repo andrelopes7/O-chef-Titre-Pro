@@ -13,10 +13,10 @@
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    width: 500px;
     min-height: 100vh;
-    background-image: url("../images/back/edgar-castrejon-s6BrlKXy7e0-unsplash.jpg");
+    background-color: rgb(48, 1, 1);
+    
 }
 
 #sidebar.active {
