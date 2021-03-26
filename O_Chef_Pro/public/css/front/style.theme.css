@@ -1,30 +1,55 @@
 .container_all{
     background-image: url("../../images/back/andrey-haimin-VFUTPASjhB8-unsplash.jpg");
     background-size: 100% ;
-}
-
-.body{
-    width: 120em; 
-    background-color: rgb(32, 32, 32, 0.9);
+    width: 150em;
 }
 
 .header{
     display: flex;
     padding: 0.5em;
+    height: 10em;
     justify-content: space-between;
     border-bottom: solid 2px rgb(32, 32, 32);
     font-weight: bolder;
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
-    background-color: rgb(236, 236, 236);
+    background-image: url("../../images/back/dan-gold-4_jhDO54BYg-unsplash.jpg");
+    background-size: inherit;
+}
+
+.h1{
+    font-size: 6em;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+.navbar-brand{
+    font-weight: 800;
+    font-size: 2em;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    margin-left: 8em;
 }
 
 .img-fluid{
-    width: 120em;
-    height: 30em;
+    width: 110em;
+    height: 35em;
+    border-radius: 40px;
+    margin: 30px;
 }
 
-.week_blog{
-    display: inline-flex;
+.input-group{
+    width: 90em;
+    height: 3em;
+    position: absolute;
+    top: 48em; left: 45em; 
 }
+
+.card-img-overlay{
+    position: absolute;
+    top: 20px; left: 38em;    
+}
+
+
 

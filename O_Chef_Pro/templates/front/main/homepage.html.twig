@@ -5,32 +5,31 @@
 <body>
 
 {#---------------------------------------Carte Image-Accueil -----------------------------------------#}
-    <div class="card bg-dark text-white">
+    <div class="card text-white">
        <img src="../images/back/aaron-blanco-tejedor-I0xbweg06KU-unsplash.jpg" class="img-fluid" alt="gastronomy dish">
       <div class="card-img-overlay">
-        <h1 class="card-title" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left ;"><strong>Pour l'amour de la gastronomie</strong></h1>
-        <h3 class="card-text" style="color: black; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left ;">Fait par des chefs, pour des chefs</h3>
+        <h1 class="card-title" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left; font-size:3em ;"><strong>Pour l'amour de la gastronomie</strong></h1>
+        <h3 class="card-text" style="color: black; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left ;"><strong>Fait par des chefs, pour des chefs</strong></h3>
       </div>
-
-
+    </div>  
         <div class="input-group mb-1">
-          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 30em;">Rechercher</button>
+          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 15em;">Rechercher</button>
           <input type="text" class="form-control" id="search-user" placeholder="Faites une recherche rapide" aria-label="Example text with button addon" aria-describedby="button-addon1">
         </div>
 
-    </div>
+    
 
           {#-----------------------------carroussel Articles------------------------------#} 
 
-<p class="h2" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left; font-size:4em; margin:20px;">Les Favorits de la semaine</p>
+<p class="h2" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left; font-size:4em; margin:20px; color: black;">Les Favorits de la semaine</p>
 
 
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width:70em; height:18em; margin:20px; background-color: white">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width:70em; height:20em; margin:20px; background-color: white">
 
   <div class="carousel-inner">
 
     <div class="carousel-item active">
-      <div class="card mb-3" style="max-width: 700px; padding: 20px; margin:30px; background-color:black; color:white">
+      <div class="card mb-3" style="max-width: 700px; padding: 10px; margin:30px; background-color:black; color:white">
       <div class="row g-0">
       {% for blog in oneBlog %}
         <div class="col-md-4">
@@ -51,7 +50,7 @@
         {#-----------------------------carroussel Recettes------------------------------#}
 
     <div class="carousel-item">
-      <div class="card mb-3" style="max-width: 700px; padding: 20px; margin:30px;background-color:black; color:white">
+      <div class="card mb-3" style="max-width: 700px; padding: 10px; margin:30px;background-color:black; color:white">
       <div class="row g-0">
       {% for recipe in oneRecipe %}
         <div class="col-md-4">
@@ -85,9 +84,9 @@
    {#-----------------------------Display Search Recettes------------------------------#}
 
 <div id="recipes" style="display:inline-flex">
-  <p class="h2" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left; font-size:5em;">Recettes</p>
+  <p class="h2" style="font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left; font-size:5em;">Recettes</p>
    {% for recipe in recipe_list %}
-    <div class="card" style="width: 18rem; margin: 20px;"  >
+    <div class="card" style="width: 20em;padding:10px; margin:30px;background-color:black; color:white; border-radius:20px"  >
 
         <img src="../images/back/sam-moqadam-wgb7RUbYP8Y-unsplash.jpg" class="card-img-top" alt="..." style="height:9em; width:12em">
           <div class="card-body">
@@ -131,9 +130,9 @@
 {#-----------------------------Display search Articles------------------------------#}
 
 <div id="blog-articles" style="display:inline-flex">
-  <p class="h2" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left; font-size:5em;">Articles</p>
+  <p class="h2" style="color: black; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: left; font-size:5em;">Articles</p>
    {% for blog in blog_list %}
-    <div class="card" style="width: 18rem; margin: 20px;"  >
+    <div class="card" style="width: 20em;padding:10px; margin:30px;background-color:black; color:white; border-radius:20px">
 
         <img src="../images/back/toa-heftiba-oQvESMKUkzM-unsplash.jpg" class="card-img-top" alt="..." style="height:9em">
           <div class="card-body">
