@@ -4,6 +4,10 @@ namespace App\Controller\Front;
 
 use App\Entity\Recipe;
 use App\Form\RecipeType;
+use App\Repository\BlogRepository;
+use App\Repository\CategoryRepository;
+use App\Repository\CountryRepository;
+use App\Repository\IngredientRepository;
 use App\Repository\RecipeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,10 +22,18 @@ class RecipeController extends AbstractController
     /**
      * @Route("/", name="recipe_index", methods={"GET"})
      */
-    public function index(RecipeRepository $recipeRepository): Response
+    public function index(RecipeRepository $recipeRepository, BlogRepository $blogRepository, IngredientRepository $ingredientRepository, CountryRepository $countryRepository, CategoryRepository $categoryRepository): Response
     {
+        $allCategory= $categoryRepository->findAll();
+        $allCountry = $countryRepository->findAll();
+        $allIngredient = $ingredientRepository->findAll();
+        $allRecipe = $recipeRepository->findAll();
+
         return $this->render('front/recipe/index.html.twig', [
-            'recipes' => $recipeRepository->findAll(),
+            'recipes' => $allRecipe,
+            'ingredient_list' => $allIngredient,
+            'category_list' => $allCategory,
+            'country_list' => $allCountry,
         ]);
     }
 

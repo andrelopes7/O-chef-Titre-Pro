@@ -1,65 +1,90 @@
 {% extends 'front/base.html.twig' %}
 
-{% block title %}Recipe index{% endblock %}
+{% block title %}Recettes{% endblock %}
 
 {% block body %}
 
-    <div class="card bg-dark text-white">
-       <img src="../images/back/michael-browning-MtqG1lWcUw0-unsplash.jpg" class="img-fluid" alt="gastronomy dish">
-      <div class="card-img-overlay">
-      
-        <h1 class="card-title" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right; font-size: 5em;"><strong>La Cuisine</strong></h1>
-        <h2 class="card-text" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right;"><strong>Fait par des chefs, pour des chefs</strong></h2>
-      </div>
-        <div class="input-group mb-1">
-          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 30em;">Rechercher</button>
-          <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-        </div>
+<div class="recipe_body">
+    <p class="h1" style="margin:40px;font-style: italic;color: black; font-family: 'Times New Roman', Times, serif;">Les Recettes du chef</p>
+
+{#-----------------------------------------Search ------------------------------------------#}
+
+    <div class="d-flex btn-lg mb-1" style="width:80em; margin:30px; padding:20px;">
+          <button class="btn btn-outline-dark" type="button" id="button-addon1" style="width: 15em;">Rechercher</button>
+          <input type="text" class="form-control" id="search-user" placeholder="Faites une recherche rapide" aria-label="Example text with button addon" aria-describedby="button-addon1">
     </div>
 
-    <h1>Recipe index</h1>
+{#-----------------------------------------Bouttons accessibilités------------------------------------------#}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Picture</th>
-                <th>Time</th>
-                <th>Portions</th>
-                <th>Danger_level</th>
-                <th>Difficult</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for recipe in recipes %}
-            <tr>
-                <td>{{ recipe.id }}</td>
-                <td>{{ recipe.name }}</td>
-                <td>{{ recipe.description }}</td>
-                <td>{{ recipe.picture }}</td>
-                <td>{{ recipe.time }}</td>
-                <td>{{ recipe.portions }}</td>
-                <td>{{ recipe.dangerLevel }}</td>
-                <td>{{ recipe.difficult }}</td>
-                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('recipe_show', {'id': recipe.id}) }}">show</a>
-                    <a href="{{ path('recipe_edit', {'id': recipe.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">no records found</td>
-            </tr>
+    <a class="btn btn-dark btn-lg" style="padding:20px; margin:30px; font-weight:bolder;" href="{{ path('category_index') }}">Categories</a>
+    <a class="btn btn-dark btn-lg" style="padding:20px; margin:30px; font-weight:bolder;" href="{{ path('country_index') }}">Pays</a>
+    <a class="btn btn-dark btn-lg" style="padding:20px; margin:30px; font-weight:bolder;" href="{{ path('ingredient_index') }}">Ingrédients</a>
+    <a class="btn btn-dark btn-lg" style="padding:20px; margin:30px; font-weight:bolder;" href="{{ path('recipe_new') }}">Devenir un chef</a>
+
+
+{#-----------------------------------------Carroussel Favorits------------------------------------------#}
+
+<p class="h2" style="font-weight:bolder; font-size:3em;font-family: 'Times New Roman', Times, serif; ;">Les Favorits</p>
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width:70em; height:20em; margin:20px; background-color: white">
+
+  <div class="carousel-inner">
+
+<div class="carousel-item-active">
+      <div class="card mb-3" style="max-width: 700px; padding: 10px; margin:30px;background-color:black; color:white">
+      <div class="row g-0">
+      {% for recipe in recipes %}
+        <div class="col-md-4">
+          <img src="../images/back/andres-medina-eGPlT_RXzi8-unsplash.jpg" class="img-fluid" style="height:12em" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ recipe.name }}</h5>
+            <p class="card-text">{{ recipe.introduction }}</p>
+            <p class="card-text"><small class="text-muted">{{ recipe.createdAt|date("m/d/Y") }}</small></p>
+          </div>
+        </div>
         {% endfor %}
-        </tbody>
-    </table>
+      </div>
+    </div>
+    </div>
 
-    <a href="{{ path('recipe_new') }}">Create new</a>
+ </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+{#-----------------------------------------Recipe Results display------------------------------------------#}
+
+<div id="recipes" style="display:inline-flex">
+  <p class="h2" style="font-style: italic; font-family: 'Times New Roman', Times, serif; font-size:5em;">Recettes</p>
+   {% for recipe in recipes %}
+    <div class="card" style="width: 20em;padding:10px; margin:30px;background-color:black; color:white; border-radius:20px"  >
+
+        <img src="../images/back/sam-moqadam-wgb7RUbYP8Y-unsplash.jpg" class="card-img-top" alt="..." style="height:9em; width:12em">
+          <div class="card-body">
+
+            <div class="search-data">
+            
+            </div>
+
+            <h5 class="card-title">{{ recipe.name }}</h5>
+            <p class="card-text">{{ recipe.introduction }}</p>
+            <p class="card-text"><small class="text-muted">{{ recipe.createdAt|date("m/d/Y") }}</small></p>
+            <a class="card-text" href="{{ path('recipe_show', {'id': recipe.id}) }}">Voir</a>
+            
+ 
+          </div> 
+
+    </div> 
+    {% endfor %}
+</div>
+</div>
 {% endblock %}
