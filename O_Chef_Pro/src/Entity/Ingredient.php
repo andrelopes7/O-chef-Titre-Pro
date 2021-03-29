@@ -37,7 +37,7 @@ class Ingredient
     private $picture;
 
     /**
-     * @Vich\UploadableField(mapping="ingredients_images", fileNameProperty="picture")
+     * @Vich\UploadableField(mapping="recipe_images", fileNameProperty="picture")
      * @var File
      */
     private $pictureFile;

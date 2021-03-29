@@ -30,10 +30,10 @@ class RecipeType extends AbstractType
                 ])
             ->add('picture')
 
-            /* ->add('pictureFile', VichImageType::class, [
+             ->add('pictureFile', VichImageType::class, [
                 'label' => 'Image de Recette',
                 'required' => true,
-            ]) */
+            ]) 
             ->add('time', TextType::class, [
                 'label' => 'Temps Total  :'
             ])

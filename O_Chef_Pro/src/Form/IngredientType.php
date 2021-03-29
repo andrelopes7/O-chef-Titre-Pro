@@ -17,7 +17,6 @@ class IngredientType extends AbstractType
         $builder
             ->add('name', null, [
                 'empty_data' => '',])
-            ->add('picture')
             ->add('pictureFile',  VichImageType::class, [
                 'label' => 'Image de Recette',
                 'required' => true,

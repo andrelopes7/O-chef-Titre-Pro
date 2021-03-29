@@ -44,5 +44,10 @@
     color: lightgoldenrodyellow;
 }
 
-
+.body_recipe{
+    
+    width: 100em;
+    position: relative;
+     left:10em;
+}
 
