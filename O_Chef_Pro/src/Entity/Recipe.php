@@ -8,10 +8,13 @@ use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
+
 
 /**
  * @ORM\Entity(repositoryClass=RecipeRepository::class)
  * @Vich\Uploadable
+ * @ApiResource
  */
 class Recipe
 {
@@ -129,6 +132,11 @@ class Recipe
         $this->blog = new ArrayCollection();
         $this->learn = new ArrayCollection();
         $this->diets = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int

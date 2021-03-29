@@ -10,9 +10,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @Route("/admin/ingredient")
+ * @Vich\Uploadable
  */
 class IngredientController extends AbstractController
 {
@@ -72,8 +74,14 @@ class IngredientController extends AbstractController
         $form = $this->createForm(IngredientType::class, $ingredient);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+
+            $em = $this->getDoctrine()->getManager();       
+            $em->persist($ingredient);
+            $em->flush();
+
+            $this->addFlash('notice', 'Vos modifications on bien été prises en compte !');
 
             return $this->redirectToRoute('admin_ingredient_index');
         }

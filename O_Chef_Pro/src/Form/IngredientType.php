@@ -4,17 +4,28 @@ namespace App\Form;
 
 use App\Entity\Ingredient;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+
 
 class IngredientType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('picture')
-            ->add('description')
+            ->add('name', null, [
+                'empty_data' => '',])
+            
+            ->add('pictureFile',  VichImageType::class, [
+                'label' => 'Image de Recette',
+                'required' => true,
+                /* 'mapped' => false, */
+               
+            ])
+            ->add('description', null, [
+                'empty_data' => '',])
             ->add('type')
             ->add('recipes')
             ->add('utilisateurs')
