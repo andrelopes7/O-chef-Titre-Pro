@@ -109,16 +109,14 @@ class Ingredient
         return $this;
     }
 
-    public function getPicture(): ?string
+    public function getPicture()
     {
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture($picture)
     {
         $this->picture = $picture;
-
-        return $this;
     }
 
     public function setPictureFile(File $picture = null)

@@ -81,7 +81,6 @@ class IngredientController extends AbstractController
             $em->persist($ingredient);
             $em->flush();
 
-            $this->addFlash('notice', 'Vos modifications on bien été prises en compte !');
 
             return $this->redirectToRoute('admin_ingredient_index');
         }
