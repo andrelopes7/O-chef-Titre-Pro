@@ -1,7 +1,7 @@
 .container_all{
     background-image: url("../../images/back/andrey-haimin-VFUTPASjhB8-unsplash.jpg");
     background-size: 100% ;
-    width: 150em;
+    width: 140em;
 }
 
 .header{
@@ -29,7 +29,7 @@
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
     color: white;
-    margin-left: 8em;
+    margin-left: 7em;
 }
 
 .img-fluid{
@@ -48,8 +48,15 @@
 
 .card-img-overlay{
     position: absolute;
-    top: 20px; left: 38em;    
+    top: 20px; left: 38em;
 }
 
+.login_style{
+    background-image: url(../../images/back/christiann-koepke-C2yH3zXzaP0-unsplash.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 180em;
+    width: 100%;
+}
 
 

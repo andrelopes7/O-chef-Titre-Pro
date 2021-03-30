@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage", methods="GET")
+     * @Route("/", name="homepages", methods="GET")
      */
     public function homepage(RecipeRepository $RecipeRepository, BlogRepository $blogRepository, LearnRepository $learnRepository, IngredientRepository $ingredientRepository, CategoryRepository $categoryRepository, CountryRepository $countryRepository): Response
     {
@@ -34,7 +34,7 @@ class MainController extends AbstractController
 
         /* dd($oneBlog); */
 
-        return $this->render('front/main/homepage.html.twig', [
+        return $this->render('front/main/homepages.html.twig', [
                 'recipe_list' => $allRecipe,
                 'blog_list' => $allBlog,
                 'learn_list' => $allLearn,

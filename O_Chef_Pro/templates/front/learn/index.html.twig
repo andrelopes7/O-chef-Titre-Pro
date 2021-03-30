@@ -7,35 +7,48 @@
 <div class="card bg-dark text-white">
        <img src="../images/back/randy-tarampi-ryUVRPYhxrY-unsplash.jpg" class="img-fluid" alt="gastronomy dish">
       <div class="card-img-overlay">
-      
         <h1 class="card-title" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right; font-size: 5em;"><strong>Cours de Cuisine</strong></h1>
         <h2 class="card-text" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right;"><strong>Fait par des chefs, pour des chefs</strong></h2>
-      </div>
-        <div class="input-group mb-1">
-          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 30em;">Rechercher</button>
-          <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-        </div>
+     </div>
     </div>
 
-<h1> Liste des Cours</h1>
+<h1 style="margin:30px;font-style: italic; font-family: 'Times New Roman', Times, serif;font-weight:bolder; font-size:4em;"> Liste des Cours</h1>
 
 <br>
+
+<div class="d-flex btn-lg mb-1" style="width:60em; margin:20px;">
+          <button class="btn btn-dark" type="button" id="button-addon1" style="width: 15em;">Rechercher</button>
+          <input type="text" class="form-control" id="search-user" placeholder="Faites une recherche rapide" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <button type="button" class="btn btn-warning btn-lg" ><a href="{{ path('blog_new') }}" style:"color:black; font-weight:bolder">Creer un Article</a></button>
+    </div>
 
 <div class="container">
 <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
 
-    {% for learn in learns %}
+<div class="d-flex btn-lg mb-1" style="width:60em; height:4em; margin:20px;">
+   <h1 style="margin:30px;color: black; font-style: italic; font-family: 'Times New Roman', Times, serif; font-size: 3em; ">Nos Leçons ...</h1>
+</div>
 
-    <div class="card" style="width: 18rem;">
-        <img src="{{learn.picture}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{learn.name}}</h5>
-          <a href="{{ path('learn_show', {id : learn.id}) }}" class="btn btn-danger">Détails</a>
-        </div>
+
+
+{% for learn in learns %}
+    <div class="card text-white bg-dark mb-3" style="width: 80em; height:25em; margin:30px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ learn.picture }}" style="border-radius:5em" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body" style="height:15em;">
+        <h5 class="card-title">{{ learn.name }}</h5>
+        <p class="card-text">{{ learn.description }}</p>
+        <p class="card-text"><small class="text-muted">{{ learn.createdAt|date("m/d/Y") }}</small></p>
+            <p class="card-text"><small class="text-muted"><a href="{{ path('learn_show', {'id': learn.id}) }}">Lire la suite</a></small></p>
+            <a href="{{ path('blog_edit', {'id': learn.id}) }}">Mofifier mon article</a>
       </div>
-
-    {% endfor %}
-     
+    </div>
+  </div>
+</div>
+{% endfor %}
    </div>
 </div>
 

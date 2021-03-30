@@ -12,48 +12,29 @@
         <h1 class="card-title" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right; font-size: 5em;"><strong>Le Blog </strong></h1>
         <h3 class="card-text" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right;"><strong>Fait par des chefs, pour des chefs</strong></h3>
       </div>
-        <div class="input-group mb-1">
-          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 30em;">Rechercher</button>
-          <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-        </div>
+        
     </div>
 
-    <h1>Blog index</h1>
+    <h1 style="margin:30px;color: black; font-style: italic; font-family: 'Times New Roman', Times, serif; font-size: 3em; ">Nos Articles ...</h1>
+    <button type="button" class="btn btn-warning btn-lg" ><a href="{{ path('blog_new') }}" style:"color:black; font-weight:bolder">Creer un Article</a></button>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Media</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for blog in blogs %}
-            <tr>
-                <td>{{ blog.id }}</td>
-                <td>{{ blog.title }}</td>
-                <td>{{ blog.content }}</td>
-                <td>{{ blog.media }}</td>
-                <td>{{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('blog_show', {'id': blog.id}) }}">Lire la suite</a>
-                    <a href="{{ path('blog_edit', {'id': blog.id}) }}">Mofifier mon article</a>
-                    
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('blog_new') }}">Create new</a>
+{% for blog in blogs %}
+    <div class="card text-white bg-dark mb-3" style="width: 80em; height:20em; margin:30px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ blog.media }}" style="border-radius:5em" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body" style="height:15em;">
+        <h5 class="card-title">{{ blog.title }}</h5>
+        <p class="card-text">{{ blog.introduction }}</p>
+        <p class="card-text"><small class="text-muted">{{ blog.createdAt|date("m/d/Y") }}</small></p>
+            <p class="card-text"><small class="text-muted"><a href="{{ path('blog_show', {'id': blog.id}) }}">Lire la suite</a></small></p>
+            <a href="{{ path('blog_edit', {'id': blog.id}) }}">Mofifier mon article</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+    
 {% endblock %}

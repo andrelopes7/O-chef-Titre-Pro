@@ -33,7 +33,7 @@
       <div class="row g-0">
       {% for blog in oneBlog %}
         <div class="col-md-4">
-          <img src="../images/back/gaelle-marcel-GaLWM8dX73U-unsplash.jpg" class="img-fluid" style="height:12em" alt="...">
+            <img src="{{ vich_uploader_asset(blog, 'mediaFile') }}" style="height:10em;width:10em">        
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -54,7 +54,7 @@
       <div class="row g-0">
       {% for recipe in oneRecipe %}
         <div class="col-md-4">
-          <img src="../images/back/andres-medina-eGPlT_RXzi8-unsplash.jpg" class="img-fluid" style="height:12em" alt="...">
+            <img src="{{ vich_uploader_asset(recipe, 'pictureFile') }}" style="height:10em;width:10em">        
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -88,7 +88,7 @@
    {% for recipe in recipe_list %}
     <div class="card" style="width: 20em;padding:10px; margin:30px;background-color:black; color:white; border-radius:20px"  >
 
-        <img src="../images/back/sam-moqadam-wgb7RUbYP8Y-unsplash.jpg" class="card-img-top" alt="..." style="height:9em; width:12em">
+            <img src="{{ vich_uploader_asset(recipe, 'pictureFile') }}" style="height:10em;width:10em">        
           <div class="card-body">
 
             <div class="search-data">
@@ -134,7 +134,7 @@
    {% for blog in blog_list %}
     <div class="card" style="width: 20em;padding:10px; margin:30px;background-color:black; color:white; border-radius:20px">
 
-        <img src="../images/back/toa-heftiba-oQvESMKUkzM-unsplash.jpg" class="card-img-top" alt="..." style="height:9em">
+            <img src="{{ vich_uploader_asset(blog, 'mediaFile') }}" style="height:10em;width:10em">        
           <div class="card-body">
 
             <div class="search-data">
