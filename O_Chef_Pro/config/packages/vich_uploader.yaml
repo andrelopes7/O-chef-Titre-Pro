@@ -7,4 +7,10 @@ vich_uploader:
         recipe_images:
                 uri_prefix: '/recipe/images'
                 upload_destination: '%kernel.project_dir%/public/recipe/images'
+        blog_images:
+                uri_prefix: '/blog/images'
+                upload_destination: '%kernel.project_dir%/public/blog/images'
+        learn_images:
+                uri_prefix: '/learn/images'
+                upload_destination: '%kernel.project_dir%/public/learn/images'        
 

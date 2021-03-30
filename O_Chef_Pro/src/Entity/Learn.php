@@ -5,12 +5,15 @@ namespace App\Entity;
 use App\Repository\LearnRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 
 /**
  * @ORM\Entity(repositoryClass=LearnRepository::class)
+ * @Vich\Uploadable
  * @ApiResource
  */
 class Learn
@@ -34,8 +37,15 @@ class Learn
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @var string
      */
     private $picture;
+
+    /**
+     * @Vich\UploadableField(mapping="learn_images", fileNameProperty="picture")
+     * @var File
+     */
+    private $pictureFile;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -49,6 +59,7 @@ class Learn
 
     /**
      * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $updated_at;
 
@@ -102,17 +113,34 @@ class Learn
         return $this;
     }
 
-    public function getPicture(): ?string
+    public function getPicture()
     {
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture($picture)
     {
         $this->picture = $picture;
-
-        return $this;
     }
+
+    public function setPictureFile(File $picture = null)
+    {
+        $this->pictureFile = $picture;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($picture) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getPictureFile()
+    {
+        return $this->pictureFile;
+    }
+
 
     public function getLink(): ?string
     {

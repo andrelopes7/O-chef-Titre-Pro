@@ -6,6 +6,8 @@ use App\Entity\Learn;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+
 
 class LearnType extends AbstractType
 {
@@ -14,7 +16,11 @@ class LearnType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('picture')
+            
+            ->add('pictureFile', VichImageType::class, [
+                'label' => 'Image de Recette',
+                'required' => true,
+            ]) 
             ->add('link')
             ->add('recipes')
         ;

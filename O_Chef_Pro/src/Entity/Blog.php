@@ -6,10 +6,13 @@ use App\Repository\BlogRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=BlogRepository::class)
+ * @Vich\Uploadable
  * @ApiResource
  */
 class Blog
@@ -33,8 +36,15 @@ class Blog
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
      */
     private $media;
+
+    /**
+     * @Vich\UploadableField(mapping="blog_images", fileNameProperty="media")
+     * @var File
+     */
+    private $mediaFile;
 
     /**
      * @ORM\Column(type="datetime")
@@ -43,6 +53,7 @@ class Blog
 
     /**
      * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $updated_at;
 
@@ -113,16 +124,32 @@ class Blog
         return $this;
     }
 
-    public function getMedia(): ?string
+    public function getMedia()
     {
         return $this->media;
     }
 
-    public function setMedia(?string $media): self
+    public function setMedia($media)
     {
         $this->media = $media;
+    }
 
-        return $this;
+    public function setMediaFile(File $media = null)
+    {
+        $this->mediaFile = $media;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($media) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getMediaFile()
+    {
+        return $this->mediaFile;
     }
 
     public function getCreatedAt(): ?\DateTimeInterface
