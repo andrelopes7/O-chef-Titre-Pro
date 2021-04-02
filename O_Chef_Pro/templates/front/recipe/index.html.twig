@@ -9,8 +9,8 @@
 
 {#-----------------------------------------Search ------------------------------------------#}
 
-    <div class="d-flex btn-lg mb-1" style="width:80em; margin:30px; padding:20px;">
-          <button class="btn btn-outline-dark" type="button" id="button-addon1" style="width: 15em;">Rechercher</button>
+    <div class="d-flex btn-lg mb-1" style="width:60em; margin:30px; padding:20px;">
+          <button class="btn btn-warning" type="button" id="button-addon1" style="width: 15em;">Rechercher</button>
           <input type="text" class="form-control" id="search-user" placeholder="Faites une recherche rapide" aria-label="Example text with button addon" aria-describedby="button-addon1">
     </div>
 
@@ -31,7 +31,7 @@
   <div class="carousel-inner">
 
 <div class="carousel-item-active">
-      <div class="card mb-3" style="max-width: 700px; padding: 10px; margin:30px;background-color:black; color:white">
+      <div class="card_display mb-3">
       <div class="row g-0">
       {% for recipe in recipes %}
         <div class="col-md-4">
@@ -66,7 +66,7 @@
 <div id="recipes" style="display:inline-flex">
   <p class="h2" style="font-style: italic; font-family: 'Times New Roman', Times, serif; font-size:5em;">Recettes</p>
    {% for recipe in recipes %}
-    <div class="card" style="width: 20em;padding:10px; margin:30px;background-color:black; color:white; border-radius:20px"  >
+    <div class="card_display" style="width: 20em;padding:10px; margin:30px;background-color:black; color:white; border-radius:20px"  >
 
           <img src="{{ vich_uploader_asset(recipe, 'pictureFile') }}" style="height:10em;width:10em">          
           <div class="card-body">

@@ -11,15 +11,12 @@
         <h1 class="card-title" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right; font-size: 5em;"><strong>Le Blog </strong></h1>
         <h3 class="card-text" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right;"><strong>Fait par des chefs, pour des chefs</strong></h3>
       </div>
-        <div class="input-group mb-1">
-          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 30em;">Rechercher</button>
-          <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-        </div>
+        
     </div>
 
-    <h1>Create new Blog</h1>
+    <h1>Créer un nouvel Article</h1>
 
     {{ include('front/blog/_form.html.twig') }}
 
-    <a href="{{ path('blog_index') }}">back to list</a>
+    <a href="{{ path('blog_index') }}">retour aux articles</a>
 {% endblock %}
