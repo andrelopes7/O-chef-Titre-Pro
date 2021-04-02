@@ -1,13 +1,14 @@
+
 .container_all{
     background-image: url("../../images/back/andrey-haimin-VFUTPASjhB8-unsplash.jpg");
     background-size: 100% ;
-    width: 140em;
 }
 
 .header{
     display: flex;
     padding: 0.5em;
     height: 10em;
+    width: 100%;
     justify-content: space-between;
     border-bottom: solid 2px rgb(32, 32, 32);
     font-weight: bolder;
@@ -32,9 +33,10 @@
     margin-left: 7em;
 }
 
+
 .img-fluid{
-    width: 110em;
-    height: 35em;
+    width: 100%;
+    height: 30em;
     border-radius: 40px;
     margin: 30px;
 }
@@ -43,20 +45,457 @@
     width: 90em;
     height: 3em;
     position: absolute;
-    top: 48em; left: 45em; 
+    top: 25em; left:30em; 
 }
+
+.carousel {
+    width:70em; 
+    height:20em; 
+    margin:20px; 
+    background-color: white
+}
+
+.card{
+    width: 1000px;
+    padding: 10px;
+    margin: 15px; 
+    background-color:black; 
+    color:rgb(255, 255, 255)
+}
+
+.col-md-4 img{
+    height:10em;
+    width:10em
+}
+
+@media (min-width: 375px) {
+
+    .container_all{
+    background-image: url("../../images/back/andrey-haimin-VFUTPASjhB8-unsplash.jpg");
+    background-size: 100% ;
+}
+
+.header{
+    height: 4em;
+    width: 375px;
+    border-bottom: solid 2px rgb(32, 32, 32);
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url("../../images/back/dan-gold-4_jhDO54BYg-unsplash.jpg");
+}
+
+.header h2{
+    color: white;
+    font-size: 2em;
+    padding: 10px;
+    font-weight: 700;
+}
+
+.navbar-brand{
+    font-weight: 800;
+    font-size: 20px;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.card{
+width: 320px;
+padding: 1em;
+border-radius: 10px;
+}
+
+.card img {
+    width: 260px;
+    height: 190px;
+    border-radius: 20px;
+}
+
+.input-group{
+    width: 300px;
+    height: 5px;
+    position: absolute;
+    top: 15em; left: 1em; 
+} 
+
+.card-img-overlay{
+    color: white;
+    font-style: italic; 
+    font-family: 'Times New Roman', Times, serif; 
+    text-align:left
+}
+
+.card-img-overlay h2{
+    font-size: 20px;
+}
+
+.card-img-overlay h3{
+    display: none;
+}
+
+.h2 {
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: left; 
+    font-size: 2em;   
+}
+
+.carousel {
+    width:350px;  
+    height: 22em;
+    background-color: rgba(255, 255, 255, 0.377)
+}
+
+.carousel-item active{
+    width: 250px;
+    height: 21em;
+    color:rgb(247, 246, 242);
+    border-radius: 20px;
+}
+
+.carousel-item {
+    width: 250px;
+    height: 21em;
+    color:rgb(247, 246, 242);
+    border-radius: 20px;
+}
+
+.col-md-4 img{
+    height:6em;
+    width:6em
+}
+
+.carousel-control-prev{
+    width: 2em;
+    background-color: rgba(0, 0, 0);
+    height: 2em;
+}
+.carousel-control-next{
+    width: 2em;
+    background-color: rgba(0, 0, 0);
+    height: 2em ;
+}
+
+.card_display{
+    display: inline-flex;
+    width: 300px;
+    padding:10px; 
+    margin:10px;
+    background-color:black;
+    color:white; 
+    border-radius:20px;
+}
+
+ .card_display img{
+    display: inline-block;
+    width:5em;
+} 
+  } 
+
+  @media (min-width: 700px) {
+
+    .container_all{
+    
+    }
+
+.header{
+    display: flex;
+    padding: 0.5em;
+    height: 10em;
+    justify-content: space-between;
+    border-bottom: solid 2px rgb(32, 32, 32);
+    font-weight: bolder;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url("../../images/back/dan-gold-4_jhDO54BYg-unsplash.jpg");
+    background-size: inherit;
+    width: 768px;
+}
+
+.h1{
+    font-size: 6em;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+.navbar-brand{
+    font-weight: 800;
+    font-size: 2em;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    margin-left: 7em;
+    width: max-content;
+}
+
+.img-fluid{
+    width: 630px;
+    height: 23em;
+    border-radius: 40px;
+    margin: 30px;
+}
+
+.input-group{
+    width: 35em;
+    height: 2em;
+    position: absolute;
+    top: 25em; left: 4em; 
+} 
 
 .card-img-overlay{
     position: absolute;
-    top: 20px; left: 38em;
+    top: 20px; left: 5em;
+    width: 40em;
+    color: white;
+    font-style: italic; 
+    font-family: 'Times New Roman', Times, serif; 
+    text-align:left
 }
 
-.login_style{
-    background-image: url(../../images/back/christiann-koepke-C2yH3zXzaP0-unsplash.jpg) ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 180em;
-    width: 100%;
+.carousel {
+    width:700px; 
+    margin:20px; 
+    background-color: rgba(255, 255, 255, 0.377)
 }
 
+.carousel-item {
+    width: 660px;
+    height: 14em;
+    margin: 15px;
+    color:rgb(247, 246, 242)
+}
 
+.carousel-control-prev{
+    width: 2em;
+    background-color: rgba(0, 0, 0);
+    height: 4em;
+}
+.carousel-control-next{
+    width: 2em;
+    background-color: rgba(0, 0, 0);
+    height: 4em ;
+}
+
+.card_display{
+    display: inline-flex;
+    width: 350px;
+    padding:10px; 
+    margin:10px;
+    background-color:black;
+    color:white; 
+    border-radius:20px;
+}
+
+ .card_display img{
+    display: inline-block;
+    
+    width:7em;
+} 
+
+  } 
+
+  @media (min-width: 900px) {
+
+    .container_all{
+    background-image: url("../../images/back/andrey-haimin-VFUTPASjhB8-unsplash.jpg");
+    background-size: 100% ;
+}
+
+.header{
+    display: flex;
+    padding: 0.5em;
+    height: 10em;
+    justify-content: space-between;
+    border-bottom: solid 2px rgb(32, 32, 32);
+    font-weight: bolder;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url("../../images/back/dan-gold-4_jhDO54BYg-unsplash.jpg");
+    background-size: inherit;
+    width: 768px;
+}
+
+.h1{
+    font-size: 6em;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+.navbar-brand{
+    font-weight: 800;
+    font-size: 2em;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    margin-left: 7em;
+    width: max-content;
+}
+
+.img-fluid{
+    width: 630px;
+    height: 23em;
+    border-radius: 40px;
+    margin: 30px;
+}
+
+.input-group{
+    width: 35em;
+    height: 2em;
+    position: absolute;
+    top: 25em; left: 4em; 
+} 
+
+.card-img-overlay{
+    position: absolute;
+    top: 20px; left: 5em;
+    width: 40em;
+    color: white;
+    font-style: italic; 
+    font-family: 'Times New Roman', Times, serif; 
+    text-align:left
+}
+
+.carousel {
+    width:700px; 
+    margin:20px; 
+    background-color: rgba(255, 255, 255, 0.377)
+}
+
+.carousel-item {
+    width: 660px;
+    height: 14em;
+    margin: 15px;
+    color:rgb(247, 246, 242)
+}
+
+.carousel-control-prev{
+    width: 2em;
+    background-color: rgba(0, 0, 0);
+    height: 4em;
+}
+.carousel-control-next{
+    width: 2em;
+    background-color: rgba(0, 0, 0);
+    height: 4em ;
+}
+
+.card_display{
+    display: inline-flex;
+    width: 350px;
+    padding:10px; 
+    margin:10px;
+    background-color:black;
+    color:white; 
+    border-radius:20px;
+}
+
+ .card_display img{
+    display: inline-block;
+    
+    width:7em;
+} 
+
+  } 
+
+  @media (min-width: 1100px) {
+
+    .container_all{
+    background-image: url("../../images/back/andrey-haimin-VFUTPASjhB8-unsplash.jpg");
+    background-size: 100% ;
+}
+
+.header{
+    display: flex;
+    padding: 0.5em;
+    height: 10em;
+    justify-content: space-between;
+    border-bottom: solid 2px rgb(32, 32, 32);
+    font-weight: bolder;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url("../../images/back/dan-gold-4_jhDO54BYg-unsplash.jpg");
+    background-size: inherit;
+    width: 768px;
+}
+
+.h1{
+    font-size: 6em;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+.navbar-brand{
+    font-weight: 800;
+    font-size: 2em;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    margin-left: 7em;
+    width: max-content;
+}
+
+.img-fluid{
+    width: 630px;
+    height: 23em;
+    border-radius: 40px;
+    margin: 30px;
+}
+
+.input-group{
+    width: 35em;
+    height: 2em;
+    position: absolute;
+    top: 25em; left: 4em; 
+} 
+
+.card-img-overlay{
+    position: absolute;
+    top: 20px; left: 5em;
+    width: 40em;
+    color: white;
+    font-style: italic; 
+    font-family: 'Times New Roman', Times, serif; 
+    text-align:left
+}
+
+.carousel {
+    width:700px; 
+    margin:20px; 
+    background-color: rgba(255, 255, 255, 0.377)
+}
+
+.carousel-item {
+    width: 660px;
+    height: 14em;
+    margin: 15px;
+    color:rgb(247, 246, 242)
+}
+
+.carousel-control-prev{
+    width: 2em;
+    background-color: rgba(0, 0, 0);
+    height: 4em;
+}
+.carousel-control-next{
+    width: 2em;
+    background-color: rgba(0, 0, 0);
+    height: 4em ;
+}
+
+.card_display{
+    display: inline-flex;
+    width: 350px;
+    padding:10px; 
+    margin:10px;
+    background-color:black;
+    color:white; 
+    border-radius:20px;
+}
+
+ .card_display img{
+    display: inline-block;
+    
+    width:7em;
+} 
+
+  } 
