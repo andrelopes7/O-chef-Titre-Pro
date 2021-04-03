@@ -29,8 +29,11 @@
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
  
    {% for typeIngredient in type.ingredients %}
-    <div class="btn btn-outline-dark"><li class="list-group-item"><a href="{{ path('admin_ingredient_show', {id : typeIngredient.id }) }}">{{ typeIngredient.name }} 
-  </a></li></div> 
+    <div class="btn btn-outline-dark">
+    <li class="list-group-item">
+    <a href="{{ path('admin_ingredient_show', {id : typeIngredient.id }) }}">{{ typeIngredient.name }}</a>
+    </li>
+    </div> 
    {% endfor %}   
 
 </ul>

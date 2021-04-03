@@ -29,7 +29,8 @@ class RecipeController extends AbstractController
         $allIngredient = $ingredientRepository->findAll();
         $allRecipe = $recipeRepository->findAll();
 
-        return $this->render('front/recipe/index.html.twig', [
+/*         dd($allCategory);
+ */        return $this->render('front/recipe/index.html.twig', [
             'recipes' => $allRecipe,
             'ingredient_list' => $allIngredient,
             'category_list' => $allCategory,

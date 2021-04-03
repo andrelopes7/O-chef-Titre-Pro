@@ -318,7 +318,7 @@ border-radius: 10px;
     .container_all{
         background-image: url("../../images/back/andrey-haimin-VFUTPASjhB8-unsplash.jpg");
         background-size: 100% ;
-        width: 60%;
+        width: 80%;
     }
     
     .header{
@@ -344,7 +344,7 @@ border-radius: 10px;
         font-style: italic;
         font-family: 'Times New Roman', Times, serif;
         color: white; 
-        margin-left: 4em;
+        margin-left: 2em;
     }
     
     .card{
