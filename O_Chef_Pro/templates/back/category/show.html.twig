@@ -3,7 +3,7 @@
 {% block title %}Category{% endblock %}
 
 {% block body %}
-    <h1>Category</h1>
+    <h1>{{ category.name }}</h1>
 
     <table class="table">
         <tbody>
@@ -22,6 +22,12 @@
             <tr>
                 <th>Image</th>
                 <td>{{ category.picture }}</td>
+            </tr>
+            <tr>
+                <th>Recettes tag</th>
+                {% for recipes in category.recipes %}
+                <td><a href="{{ path('admin_recipe_show', {id : recipes.id }) }}">{{ recipes.name }}</a></td>
+                {% endfor %}
             </tr>
             <tr>
                 <th>Created_at</th>

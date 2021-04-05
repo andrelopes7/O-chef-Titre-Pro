@@ -32,6 +32,12 @@
                 <td>{{ user.picture }}</td>
             </tr>
             <tr>
+                <th>Recettes crées</th>
+                {% for recipe in user.recipes %}
+                <td><a href="{{ path('admin_recipe_show', {id : recipe.id }) }}">{{ recipe.name }}</a></td>
+                {% endfor %}
+            </tr>
+            <tr>
                 <th>Last_login</th>
                 <td>{{ user.lastLogin ? user.lastLogin|date('Y-m-d H:i:s') : '' }}</td>
             </tr>

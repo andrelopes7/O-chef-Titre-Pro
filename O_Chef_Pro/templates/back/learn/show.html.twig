@@ -25,7 +25,13 @@
             </tr>
             <tr>
                 <th>Link</th>
-                <td>{{ learn.link }}</td>
+                <td><a href="http://webtv.hotellerie-restauration.ac-versailles.fr/A-points-de-cuisson-bleu-saignant-a-point-bien-cuit">{{ learn.link }}</td>
+            </tr>
+            <tr>
+                <th>Recettes tag</th>
+                {% for recipe in learn.recipes %}
+                <td><a href="{{ path('admin_recipe_show', {id : recipe.id }) }}">{{ recipe.name }}</a></td>
+                {% endfor %}
             </tr>
             <tr>
                 <th>Created_at</th>

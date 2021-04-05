@@ -51,3 +51,6 @@
      left:10em;
 }
 
+.table td{
+    display: block;
+}

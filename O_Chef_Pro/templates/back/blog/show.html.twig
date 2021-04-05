@@ -3,7 +3,7 @@
 {% block title %}Blog{% endblock %}
 
 {% block body %}
-    <h1>Blog</h1>
+    <h1>{{ blog.title }}</h1>
 
     <table class="table">
         <tbody>
@@ -12,16 +12,18 @@
                 <td>{{ blog.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
-                <td>{{ blog.title }}</td>
-            </tr>
-            <tr>
                 <th>Content</th>
                 <td>{{ blog.content }}</td>
             </tr>
             <tr>
                 <th>Media</th>
                 <td>{{ blog.media }}</td>
+            </tr>
+            <tr>
+                <th>Recettes tag</th>
+                {% for recipe in blog.recipes %}
+                <td><a href="{{ path('admin_recipe_show', {id : recipe.id }) }}">{{ recipe.name }}</a></td>
+                {% endfor %}
             </tr>
             <tr>
                 <th>Created_at</th>

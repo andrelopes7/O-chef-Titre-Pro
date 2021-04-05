@@ -31,6 +31,12 @@
                 <th>Updated_at</th>
                 <td>{{ ingredient.updatedAt ? ingredient.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
+            <tr>
+                <th>Recette associées</th>
+                {% for recipe in ingredient.recipes %}
+                <td><a href="{{ path('admin_recipe_show', {id : recipe.id }) }}">{{ recipe.name }}</a></td>
+                {% endfor %}
+            </tr>
         </tbody>
     </table>
 

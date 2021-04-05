@@ -24,6 +24,12 @@
                 <td>{{ diet.picture }}</td>
             </tr>
             <tr>
+                <th>Recettes tag</th>
+                {% for recipe in diet.recipe %}
+                <td><a href="{{ path('admin_recipe_show', {id : recipe.id }) }}">{{ recipe.name }}</a></td>
+                {% endfor %}
+            </tr>
+            <tr>
                 <th>Created_at</th>
                 <td>{{ diet.createdAt ? diet.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>

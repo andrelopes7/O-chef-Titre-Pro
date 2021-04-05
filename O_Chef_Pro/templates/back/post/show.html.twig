@@ -20,6 +20,12 @@
                 <td>{{ post.description }}</td>
             </tr>
             <tr>
+                <th>Recettes tag</th>
+                {% for recipe in post.recipes %}
+                <td><a href="{{ path('admin_recipe_show', {id : recipe.id }) }}">{{ recipe.name }}</a></td>
+                {% endfor %}
+            </tr>
+            <tr>
                 <th>Created_at</th>
                 <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
