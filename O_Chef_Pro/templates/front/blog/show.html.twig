@@ -9,46 +9,29 @@
       <div class="card-img-overlay">
       
         <h1 class="card-title" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right; font-size: 5em;"><strong>Le Blog </strong></h1>
-        <h3 class="card-text" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right;"><strong>Fait par des chefs, pour des chefs</strong></h3>
       </div>
         <div class="input-group mb-1">
-          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 30em;">Rechercher</button>
+          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 15em;">Rechercher</button>
           <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
         </div>
     </div>
 
-    <h1>Blog</h1>
+<div class="form_new_show">
+    <h1>{{ blog.title }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ blog.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ blog.title }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
                 <td>{{ blog.content }}</td>
             </tr>
             <tr>
-                <th>Media</th>
+                <th>Medias</th>
                 <td>{{ blog.media }}</td>
-            </tr>
-            <tr>
-                <th>Created_at</th>
-                <td>{{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Updated_at</th>
-                <td>{{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('blog_index') }}">back to list</a>
+</div>
+    <a href="{{ path('blog_index') }}">Retour</a>
 
     <a href="{{ path('blog_edit', {'id': blog.id}) }}">edit</a>
 

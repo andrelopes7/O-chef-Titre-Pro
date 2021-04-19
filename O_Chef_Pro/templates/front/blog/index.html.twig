@@ -20,18 +20,16 @@
 <br>
 
 {% for blog in blogs %}
-    <div class="card_display text-white bg-dark mb-3" >
+    <div class="card_display text-white bg-dark mb-3" style="width:20em;height:16em;" >
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="{{ blog.media }}" style="border-radius:5em" alt="...">
+      <img src="{{ blog.media }}" style="border-radius:5em; width:12em; height:12em" alt="...">
     </div>
     <div class="col-md-8">
-      <div class="card-body" style="height:15em;">
+      <div class="card-body">
         <h5 class="card-title">{{ blog.title }}</h5>
-        <p class="card-text">{{ blog.introduction }}</p>
         <p class="card-text"><small class="text-muted">{{ blog.createdAt|date("m/d/Y") }}</small></p>
             <p class="card-text"><small class="text-muted"><a href="{{ path('blog_show', {'id': blog.id}) }}">Lire la suite</a></small></p>
-            <a href="{{ path('blog_edit', {'id': blog.id}) }}">Mofifier mon article</a>
       </div>
     </div>
   </div>

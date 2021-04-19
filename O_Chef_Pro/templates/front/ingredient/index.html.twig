@@ -3,41 +3,20 @@
 {% block title %}Ingredient index{% endblock %}
 
 {% block body %}
-    <h1>Ingredient index</h1>
+    <h1>Liste des ingredients</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Picture</th>
-                <th>Description</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
         {% for ingredient in ingredients %}
-            <tr>
-                <td>{{ ingredient.id }}</td>
-                <td>{{ ingredient.name }}</td>
-                <td>{{ ingredient.picture }}</td>
-                <td>{{ ingredient.description }}</td>
-                <td>{{ ingredient.createdAt ? ingredient.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ ingredient.updatedAt ? ingredient.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('ingredient_show', {'id': ingredient.id}) }}">show</a>
-                    <a href="{{ path('ingredient_edit', {'id': ingredient.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            
+        <div class="card" style="display: inline-flex; width:15em; height: 15em;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">{{ ingredient.name }}</p>
+                <p class="card-text"><a href="{{ path('ingredient_show', {'id': ingredient.id}) }}">Détails</a>
+            </div>
+        </div>      
+            {% endfor %}    
+     <br>       
 
-    <a href="{{ path('ingredient_new') }}">Create new</a>
+    <a href="{{ path('ingredient_new') }}">Créer Nouvel Ingredient</a>
+    <p><a href="{{ path('recipe_index') }}">Retour aux recettes</a></p>
 {% endblock %}

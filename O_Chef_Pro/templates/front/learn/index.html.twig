@@ -16,10 +16,9 @@
 
 <br>
 
-<div class="d-flex btn-lg mb-1" style="width:60em; margin:20px;">
+<div class="d-flex btn-lg mb-1" style="width:45em;">
           <button class="btn btn-dark" type="button" id="button-addon1" style="width: 15em;">Rechercher</button>
           <input type="text" class="form-control" id="search-user" placeholder="Faites une recherche rapide" aria-label="Example text with button addon" aria-describedby="button-addon1">
-        <button type="button" class="btn btn-warning btn-lg" ><a href="{{ path('blog_new') }}" style:"color:black; font-weight:bolder">Creer un Article</a></button>
     </div>
 
 <div class="container">
@@ -32,18 +31,16 @@
 
 
 {% for learn in learns %}
-    <div class="card text-white bg-dark mb-3">
+    <div class="card text-white bg-dark mb-3" style="display:inline-flex;height:15em; width:20em">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="{{ learn.picture }}" style="border-radius:5em" alt="...">
+      <img src="{{ learn.picture }}" style="border-radius:5em; width:12em; height:12em" alt="...">
     </div>
     <div class="col-md-8">
-      <div class="card-body" style="height:15em;">
+      <div class="card-body">
         <h5 class="card-title">{{ learn.name }}</h5>
-        <p class="card-text">{{ learn.description }}</p>
         <p class="card-text"><small class="text-muted">{{ learn.createdAt|date("m/d/Y") }}</small></p>
             <p class="card-text"><small class="text-muted"><a href="{{ path('learn_show', {'id': learn.id}) }}">Lire la suite</a></small></p>
-            <a href="{{ path('blog_edit', {'id': learn.id}) }}">Mofifier mon article</a>
       </div>
     </div>
   </div>

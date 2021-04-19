@@ -17,41 +17,25 @@
         </div>
     </div>
 
-    <h1>Learn</h1>
+<div class="form_new_show">
+    <h1>{{ learn.name }}</h1>
 
     <table class="table">
-        <tbody>
+        <tbody> 
             <tr>
-                <th>Id</th>
-                <td>{{ learn.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ learn.name }}</td>
+                <td>{{ learn.picture }}</td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>{{ learn.description }}</td>
             </tr>
             <tr>
-                <th>Picture</th>
-                <td>{{ learn.picture }}</td>
-            </tr>
-            <tr>
-                <th>Link</th>
+                <th>Ressource</th>
                 <td>{{ learn.link }}</td>
-            </tr>
-            <tr>
-                <th>Created_at</th>
-                <td>{{ learn.createdAt ? learn.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Updated_at</th>
-                <td>{{ learn.updatedAt ? learn.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('learn_index') }}">back to list</a>
+</div>
+    <a href="{{ path('learn_index') }}">Retour</a>
 
 {% endblock %}

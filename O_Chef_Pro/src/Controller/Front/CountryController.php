@@ -5,6 +5,7 @@ namespace App\Controller\Front;
 use App\Entity\Country;
 use App\Form\CountryType;
 use App\Repository\CountryRepository;
+use App\Repository\RegionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +21,7 @@ class CountryController extends AbstractController
      */
     public function index(CountryRepository $countryRepository): Response
     {
+        
         return $this->render('front/country/index.html.twig', [
             'countries' => $countryRepository->findAll(),
         ]);

@@ -13,42 +13,31 @@
         <h2 class="card-text" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right;"><strong>Fait par des chefs, pour des chefs</strong></h2>
       </div>
         <div class="input-group mb-1">
-          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 30em;">Rechercher</button>
+          <button class="btn btn-outline-warning" type="button" id="button-addon1" style="width: 15em;">Rechercher</button>
           <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
         </div>
     </div>
 
-    <h1>VideoRoom</h1>
+<div class ="form_new_show">
+    <h1>{{ video_room.name }}</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ video_room.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ video_room.name }}</td>
-            </tr>
             <tr>
                 <th>Description</th>
                 <td>{{ video_room.description }}</td>
             </tr>
             <tr>
-                <th>Link</th>
+                <th>Ressource</th>
                 <td>{{ video_room.link }}</td>
             </tr>
             <tr>
-                <th>Created_at</th>
                 <td>{{ video_room.createdAt ? video_room.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Updated_at</th>
-                <td>{{ video_room.updatedAt ? video_room.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
+</div>
 
-    <a href="{{ path('video_room_index') }}">back to list</a>
+    <a href="{{ path('video_room_index') }}">Retour</a>
 
 {% endblock %}

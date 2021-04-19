@@ -3,38 +3,30 @@
 {% block title %}Ingredient{% endblock %}
 
 {% block body %}
-    <h1>Ingredient</h1>
+
+<div class="form_new_show">
+    <h1>{{ ingredient.name }}</h1>
 
     <table class="table">
-        <tbody>
+       <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ ingredient.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ ingredient.name }}</td>
-            </tr>
-            <tr>
-                <th>Picture</th>
-                <td>{{ ingredient.picture }}</td>
+                <td><img src="{{ vich_uploader_asset(ingredient, 'pictureFile') }}" style="height:10em;width:10em"></td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>{{ ingredient.description }}</td>
             </tr>
             <tr>
-                <th>Created_at</th>
-                <td>{{ ingredient.createdAt ? ingredient.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Updated_at</th>
-                <td>{{ ingredient.updatedAt ? ingredient.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <th>Recette associées</th>
+                {% for recipe in ingredient.recipes %}
+                <td><a href="{{ path('recipe_show', {id : recipe.id }) }}">{{ recipe.name }}</a></td>
+                {% endfor %}
             </tr>
         </tbody>
     </table>
+</div>
 
-    <a href="{{ path('ingredient_index') }}">back to list</a>
+    <a href="{{ path('ingredient_index') }}">Retour aux Ingredients</a>
 
     <a href="{{ path('ingredient_edit', {'id': ingredient.id}) }}">edit</a>
 

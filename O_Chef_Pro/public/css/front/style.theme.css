@@ -9,7 +9,7 @@
     display: flex;
     padding: 0.5em;
     height: 10em;
-    width: 100%;
+    width: 60%;
     justify-content: space-between;
     border-bottom: solid 2px rgb(32, 32, 32);
     font-weight: bolder;
@@ -36,7 +36,7 @@
 
 .img-fluid{
     width: 100%;
-    height: 30em;
+    height: 25em;
     border-radius: 40px;
     margin: 30px;
 }
@@ -66,6 +66,10 @@
 .col-md-4 img{
     height:10em;
     width:10em
+}
+
+.form_recipe_new{
+    width:50%;
 }
 
 @media (min-width: 360px) {
@@ -178,7 +182,7 @@ border-radius: 10px;
 
 .card_display{
     display: inline-flex;
-    width: 300px;
+    width: 350px;
     padding:10px; 
     margin:10px;
     background-color:black;
@@ -187,9 +191,14 @@ border-radius: 10px;
 }
 
  .card_display img{
-    display: inline-block;
+    display: inline-flex;
     width:5em;
 } 
+
+.form_recipe_new{
+    width:50%;
+}
+
   } 
 
   @media (min-width: 700px) {
@@ -311,6 +320,11 @@ border-radius: 10px;
     display: inline-block;
     width:17%;
 } 
+
+.form_recipe_new{
+    width:50%;
+}
+
   } 
 
   @media (min-width: 1000px) {
@@ -318,17 +332,18 @@ border-radius: 10px;
     .container_all{
         background-image: url("../../images/back/andrey-haimin-VFUTPASjhB8-unsplash.jpg");
         background-size: 100% ;
-        width: 80%;
+        width: 60%;
     }
     
     .header{
-        height: 8em;
-        width: 100%;
+        height: 7em;
+        width: 70%;
+        position: relative;
+        left: 17em;
         border-bottom: solid 2px rgb(32, 32, 32);
         font-style: italic;
         font-family: 'Times New Roman', Times, serif;
         background-image: url("../../images/back/dan-gold-4_jhDO54BYg-unsplash.jpg");
-    
     }
     
     .h1{
@@ -338,10 +353,9 @@ border-radius: 10px;
     }
 
     .h2{
-        font-size: 3em;
+        font-size: 2em;
         color: rgb(0, 0, 0);
         font-weight: bolder;
-        background-color: rgba(255, 196, 0, 0.3);
         margin: 20px;
         width: 15%;
         text-align: center;
@@ -354,19 +368,12 @@ border-radius: 10px;
         font-style: italic;
         font-family: 'Times New Roman', Times, serif;
         color: white; 
-        margin-left: 2em;
+        margin-left: 1em;
     }
-    
-    .card{
-        width: 80%;
-        height: 30em;
-        padding: 1em;
-        border-radius: 10px;
-        }
         
         .card img {
             width: 75%;
-            height: 25em;
+            height: 20em;
             border-radius: 20px;
         }
         
@@ -374,7 +381,7 @@ border-radius: 10px;
             width: 80%;
             height: 5px;
             position: absolute;
-            top: 25.5em; left: 6em; 
+            top: 23em; left: 6em; 
         } 
     
     
@@ -386,31 +393,30 @@ border-radius: 10px;
     }
     
     .card-img-overlay h2{
-        font-size: 45px;
+        font-size: 35px;
     }
     
     .card-img-overlay h3{
         display: initial;
-        font-size: 35px;
+        font-size: 30px;
     }
     
     .carousel {
         width:50%;  
-        height: 19em;
         background-color: rgba(255, 255, 255, 0.377)
     }
     
     .carousel-item {
         width: 95%;
-        height: 18em;
+        height: 17em;
         color:rgb(247, 246, 242);
         border-radius: 20px;
         margin-left: 1em;
     }
     
     .col-md-4 img{
-        height:12em;
-        width:12em
+        height:10em;
+        width:10em
     }
     
     .carousel-control-prev{
@@ -426,8 +432,8 @@ border-radius: 10px;
     
     .card_display{
         display: inline-flex;
-        width: 50%;
-        padding:10px; 
+        width: 25em;
+        padding:15px; 
         margin:10px;
         background-color:black;
         color:white; 
@@ -435,9 +441,16 @@ border-radius: 10px;
     }
     
      .card_display img{
-        display: inline-block;
-        width:10%;
+        display: inline-flex;
+        width:10em;
+        height: 10em;
     }  
 
+    .form_new_show{
+        width:60%;
+        background-color: rgb(0, 0, 0, 0.6);
+        color: cornsilk;
+    }
+    
   } 
  
