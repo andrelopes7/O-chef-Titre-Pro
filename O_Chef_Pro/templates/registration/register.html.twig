@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'front/base.html.twig' %}
 
 {% block title %}Register{% endblock %}
 
@@ -6,7 +6,7 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-
+<div class ="form_new_show">
     <h1>Register</h1>
 
     {{ form_start(registrationForm) }}
@@ -16,6 +16,7 @@
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn" style="color:white; font-size:1em;">Register</button>
     {{ form_end(registrationForm) }}
+    </div>
 {% endblock %}

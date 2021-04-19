@@ -12,7 +12,7 @@
         <h3 class="card-text">Fait par des chefs, pour des chefs</h3>
       </div>
         <div class="input-group mb-1">
-          <button class="btn btn-outline-warning" type="button" id="button-addon1">Rechercher</button>
+          <button class="btn btn-outline-dark" type="button" id="button-addon1">Rechercher</button>
           <input type="text" class="form-control" id="search-user" placeholder="Faites une recherche rapide" aria-label="Example text with button addon" aria-describedby="button-addon1">
         </div>
 
@@ -30,7 +30,7 @@
 
   <div class="carousel-inner">
 
-     <div class="carousel-item active ">
+     <div class="carousel-item active">
       <div class="card mb-3">
       <div class="row g-0">
       {% for blog in oneBlog %}
@@ -39,7 +39,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">{{ blog.title }}</h5>
+            <h5 class="card-title"><a href="{{ path('blog_show',{'id': blog.id}) }}">{{ blog.title }}</a></h5>
             <p class="card-text">{{ blog.introduction }}</p>
             <p class="card-text"><small class="text-muted">{{ blog.createdAt|date("d/m/Y") }}</small></p>
           </div>
@@ -60,7 +60,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">{{ recipe.name }}</h5>
+            <h5 class="card-title"><a href="{{ path('recipe_show',{'id': recipe.id}) }}">{{ recipe.name }}</a></h5>
             <p class="card-text">{{ recipe.introduction }}</p>
             <p class="card-text"><small class="text-muted">{{ recipe.createdAt|date("d/m/Y") }}</small></p>
           </div>
@@ -124,6 +124,8 @@
             <h5 class="card-title" style="font-style: italic; font-family: 'Times New Roman', Times, serif;">{{ recipe.name }}</h5>
             <p class="card-text">{{ recipe.introduction }}</p>
             <p class="card-text"><small class="text-muted">{{ recipe.createdAt|date("m/d/Y") }}</small></p>
+            <p class="card-text"><a href="{{ path('recipe_show',{'id': recipe.id}) }}">Voir</a></p>
+
           </div> 
     </div> 
     {% endfor %}
@@ -166,6 +168,8 @@
 
             <h5 class="card-title"style="font-style: italic; font-family: 'Times New Roman', Times, serif;">{{ blog.title }}</h5>
             <p class="card-text"><small class="text-muted">{{ blog.createdAt|date("m/d/Y") }}</small></p>
+            <p class="card-text"><a href="{{ path('blog_show',{'id': blog.id}) }}">Voir</a></p>
+
           </div> 
     </div> 
     {% endfor %}
