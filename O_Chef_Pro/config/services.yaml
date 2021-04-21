@@ -8,7 +8,7 @@ parameters:
     app.path.recipe_images: /uploads/images/recipes
     app.path.blog_images: /uploads/images/blogs
     app.path.learn_images: /uploads/images/learn
-
+    app.path.user_images: /uploads/images/user
     app.path.category_images: /uploads/images/category
 services:
     # default configuration for services in *this* file

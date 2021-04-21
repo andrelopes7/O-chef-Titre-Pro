@@ -8,6 +8,7 @@ use App\Repository\CountryRepository;
 use App\Repository\IngredientRepository;
 use App\Repository\LearnRepository;
 use App\Repository\RecipeRepository;
+use App\Repository\UtilisateurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,7 +21,7 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="homepages", methods="GET")
      */
-    public function homepage(RecipeRepository $RecipeRepository, BlogRepository $blogRepository, LearnRepository $learnRepository, IngredientRepository $ingredientRepository, CategoryRepository $categoryRepository, CountryRepository $countryRepository): Response
+    public function homepage(RecipeRepository $RecipeRepository, BlogRepository $blogRepository, LearnRepository $learnRepository, IngredientRepository $ingredientRepository, CategoryRepository $categoryRepository, CountryRepository $countryRepository, UtilisateurRepository $userRepository): Response
     {
        
         $allRecipe = $RecipeRepository->findAll();
@@ -28,6 +29,7 @@ class MainController extends AbstractController
         $allLearn = $learnRepository->findAll();
         $allCategory= $categoryRepository->findAll();
         $allCountry = $countryRepository->findAll();
+        $allUser = $userRepository->findAll();
         $allIngredient = $ingredientRepository->findAll();
         $oneBlog = $blogRepository->findBy(array('id' => 1));
         $oneRecipe = $RecipeRepository->findBy(array('id' => 1));
@@ -43,6 +45,8 @@ class MainController extends AbstractController
                 'ingredient_list' => $allIngredient,
                 'category_list' => $allCategory,
                 'country_list' => $allCountry,
+                'user_list'=> $allUser,
             ]);
     }
+
 }

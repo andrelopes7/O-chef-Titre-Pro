@@ -25,9 +25,33 @@
 
 
 <div class="header">
+
 <h4><a class="btn btn-dark" href="{{ path('app_register') }}">Inscription </a></h4>
 
 <h2><a href="{{ path('homepages') }}"><strong>O'</strong>Chef</a></h2>
+
+{# {% if app.user %}
+        <div style="font-size:15px">
+            Bienvenue {{ app.user.username }}, 
+            
+<div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      Paramètres
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><a class="dropdown-item" href="{{ path('user_show') }}">Mon Profil</a></li>
+      <li><a class="dropdown-item" href="{{ path('user_edit', {'id': user.id}) }}">Modifier Profil</a></li>
+
+  {% if is_granted('ROLE_ADMIN') %}
+      <li><a class="dropdown-item" href="{{ path('homepage') }}">Back-office</a></li>
+  {% endif %}
+
+      <li><a class="dropdown-item" href="{{ path('app_logout') }}"><strong>Déconnexion</strong></a></li>
+    </ul>
+</div>
+        </div>
+    {% endif %} #}
 
 <h4><a class="btn btn-dark " href="{{ path('app_login') }}">Connexion</a></h4>
 </div>

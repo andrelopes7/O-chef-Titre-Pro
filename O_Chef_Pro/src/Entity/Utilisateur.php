@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 
@@ -15,6 +17,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
  * @ORM\Entity(repositoryClass=UtilisateurRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  * @ApiResource
+ * @Vich\Uploadable
  */
 class Utilisateur implements UserInterface
 {
@@ -42,9 +45,15 @@ class Utilisateur implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture;
+
+    /**
+     * @Vich\UploadableField(mapping="user_images", fileNameProperty="picture")
+     * @var File|null
+     */
+    private $pictureFile;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -197,6 +206,19 @@ class Utilisateur implements UserInterface
         $this->picture = $picture;
 
         return $this;
+    }
+
+    public function setPictureFile(?File $pictureFile = null): void
+    {
+        $this->pictureFile = $pictureFile;
+
+        if (null !== $pictureFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
     }
 
     public function getFriend(): ?string

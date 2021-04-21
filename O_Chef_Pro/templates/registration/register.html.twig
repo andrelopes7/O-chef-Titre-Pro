@@ -7,9 +7,11 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 <div class ="form_new_show">
-    <h1>Register</h1>
+    <h1>Inscrivez-Vous</h1>
 
     {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.name) }}
+        {{ form_row(registrationForm.pictureFile) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
