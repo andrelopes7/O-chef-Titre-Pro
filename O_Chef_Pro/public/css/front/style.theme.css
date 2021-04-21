@@ -229,11 +229,10 @@
 
 .navbar-brand{
     font-weight: 800;
-    font-size: 1em;
+    font-size: 2em;
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
     color: white;
-    
 }
 
     
@@ -243,10 +242,9 @@
 }
     
     .input-group{
-        width: 95%;
-        height: 5px;
+        width: 90%;
         position: absolute;
-        top: 15em; left: 1em; 
+        top: 10em; left: 3em; 
     } 
 
 
@@ -268,8 +266,8 @@
 
 .carousel {
     display: inherit;
-    width:95%;  
-    height: 19em;
+    width:90%;  
+    height: 12em;
     background-color: rgba(255, 255, 255, 0.377)
 }
 
@@ -278,6 +276,10 @@
     height: 90%;
     color:rgb(247, 246, 242);
     border-radius: 20px;
+}
+
+.card-text{
+    display: initial;
 }
 
 .carousel-item {
@@ -305,7 +307,8 @@
 
 .card_display{
     display: inline-flex;
-    width: 45%;
+    width: 25em;
+    height: 16em;
     padding:10px; 
     margin:10px;
     background-color:black;
@@ -315,7 +318,8 @@
 
  .card_display img{
     display: inline-block;
-    width:17%;
+    width:11em;
+    height: 100%;
 } 
 
 .form_new_show{

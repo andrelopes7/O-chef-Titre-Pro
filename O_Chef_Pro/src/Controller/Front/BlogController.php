@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/", name="blog_index", methods={"GET"})
+     * @Route("/", name="blog", methods={"GET"})
      */
     public function index(BlogRepository $blogRepository): Response
     {
