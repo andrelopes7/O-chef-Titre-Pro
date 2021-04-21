@@ -22,7 +22,7 @@
     {% for learn in learns %}
 
     <div class="card" style="width: 18rem;">
-        <img src="{{ vich_uploader_asset(learn, 'pictureFile') }}" style="height:10em;width:10em" class="card-img-top" alt="...">
+        <img src="{{ vich_uploader_asset(learn, 'pictureFile') }}" style="height:10em;width:17em" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{learn.name}}</h5>
           <a href="{{ path('admin_learn_show', {id : learn.id}) }}" class="btn btn-danger">Détails</a>

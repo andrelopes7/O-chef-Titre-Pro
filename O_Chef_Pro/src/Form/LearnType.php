@@ -16,7 +16,7 @@ class LearnType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            
+            ->add('picture')
             ->add('pictureFile', VichImageType::class, [
                 'label' => 'Image de Recette',
                 'required' => true,

@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class BlogType extends AbstractType
 {
@@ -18,6 +19,10 @@ class BlogType extends AbstractType
             ->add('introduction')
             ->add('content')
             ->add('media')
+            ->add('mediaFile', VichImageType::class, [
+                'label' => 'Image',
+                'required' => true,
+            ])
             ->add('recipes')
             ->add('utilisateur')
             ->add('ingredients', EntityType::class, [

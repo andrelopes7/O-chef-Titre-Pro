@@ -31,14 +31,13 @@ class Ingredient
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture;
 
     /**
      * @Vich\UploadableField(mapping="recipe_images", fileNameProperty="picture")
-     * @var File
+     * @var File|null
      */
     private $pictureFile;
 
@@ -55,7 +54,6 @@ class Ingredient
 
     /**
      * @ORM\Column(type="datetime")
-     * @var \DateTime
      */
     private $updated_at;
 
@@ -119,23 +117,19 @@ class Ingredient
         $this->picture = $picture;
     }
 
-    public function setPictureFile(File $picture = null)
+    public function setPictureFile(?File $pictureFile = null): void
     {
-        $this->pictureFile = $picture;
+        $this->pictureFile = $pictureFile;
 
-        // VERY IMPORTANT:
-        // It is required that at least one field changes if you are using Doctrine,
-        // otherwise the event listeners won't be called and the file is lost
-        if ($picture) {
-            // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
+        if (null !== $pictureFile) {
+            $this->updatedAt = new \DateTimeImmutable();
         }
     }
-
-    public function getPictureFile()
+    public function getPictureFile(): ?File
     {
         return $this->pictureFile;
     }
+
 
     public function getDescription(): ?string
     {

@@ -17,7 +17,9 @@
             </tr>
             <tr>
                 <th>Media</th>
-                <td>{{ blog.media }}</td>
+                <td>
+                <img src="{{ vich_uploader_asset(blog, 'mediaFile') }}" style="height:10em;width:17em">
+                </td>
             </tr>
             <tr>
                 <th>Recettes tag</th>

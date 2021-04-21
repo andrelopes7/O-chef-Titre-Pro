@@ -36,13 +36,12 @@ class Blog
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
     private $media;
 
     /**
      * @Vich\UploadableField(mapping="blog_images", fileNameProperty="media")
-     * @var File
+     * @var File|null
      */
     private $mediaFile;
 
@@ -53,7 +52,6 @@ class Blog
 
     /**
      * @ORM\Column(type="datetime")
-     * @var \DateTime
      */
     private $updated_at;
 
@@ -134,20 +132,15 @@ class Blog
         $this->media = $media;
     }
 
-    public function setMediaFile(File $media = null)
+    public function setMediaFile(?File $mediaFile = null): void
     {
-        $this->mediaFile = $media;
+        $this->mediaFile = $mediaFile;
 
-        // VERY IMPORTANT:
-        // It is required that at least one field changes if you are using Doctrine,
-        // otherwise the event listeners won't be called and the file is lost
-        if ($media) {
-            // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
+        if (null !== $mediaFile) {
+            $this->updatedAt = new \DateTimeImmutable();
         }
     }
-
-    public function getMediaFile()
+    public function getMediaFile(): ?File
     {
         return $this->mediaFile;
     }
