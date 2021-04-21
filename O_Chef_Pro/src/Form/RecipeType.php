@@ -6,8 +6,10 @@ use App\Entity\Diet;
 use App\Entity\Ingredient;
 use App\Entity\Post;
 use App\Entity\Recipe;
+use Doctrine\Inflector\Rules\Word;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -40,13 +42,23 @@ class RecipeType extends AbstractType
             ->add('portions', TextType::class, [
                 'label' => 'Portions',
             ])
-            ->add('danger_level', TextType::class, [
+            ->add('danger_level', ChoiceType::class, [
                 'label' => 'Niveau de Danger',
+                'choices' => [
+                    'Dangereux' =>'Hard' ,
+                    "Moyen" => 'Middle',
+                    "Sûre" => 'Safe'
+                ],
             ])
             ->add('posts')
 
-            ->add('difficult', TextType::class, [
-                'label' => 'Difficulté', 
+            ->add('difficult', ChoiceType::class, [
+                'label' => 'Difficulté',
+                'choices' => [
+                    "Trés Difficile" => 'Hard' ,
+                    "Normal" => 'Middle',
+                    "Facile" => 'Safe'
+                ],
                 ])
             ->add('categories')
             ->add('diets', EntityType::class, [
