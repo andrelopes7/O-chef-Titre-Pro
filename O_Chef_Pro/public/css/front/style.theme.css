@@ -2,7 +2,6 @@
 .container_all{
     background-image: url("../../images/back/andrey-haimin-VFUTPASjhB8-unsplash.jpg");
     background-size: 100% ;
-    
 }
 
 .header{
@@ -20,7 +19,7 @@
 
 .h1{
     font-size: 6em;
-    color: rgb(0, 0, 0);
+    color: rgba(3, 3, 3, 0.863);
     font-weight: bolder;
 }
 
@@ -337,26 +336,23 @@
     }
     
     .header{
-        height: 3em;
-        width: 70%;
-        position: relative;
-        left: 8em;
+        height: 8em;
+        width: 100%;
         font-style: italic;
         font-family: 'Times New Roman', Times, serif;
-        font-size: 2em;
-        color: black;
         background-image: url("../../images/back/roman-grachev-eygJ8wxgfng-unsplash.jpg");
-        background-size: 70%;
+        background-size: 120em 30em;
+        background-repeat: no-repeat;
     }
     
     .h1{
         font-size: 5em;
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255, 0.8);
         font-weight: bolder;
     }
  
     .h2{
-        font-size: 2.5em;
+        font-size: 2em;
         color: rgb(0, 0, 0);
         font-weight: bolder;
         margin: 20px;
