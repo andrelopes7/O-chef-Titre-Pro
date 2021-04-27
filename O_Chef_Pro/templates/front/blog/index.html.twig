@@ -6,11 +6,10 @@
  
  
     <div class="card bg-dark text-white">
-       <img src="../images/back/oldelpachot-5l-Q8p_feHE-unsplash.jpg" class="img-fluid" alt="blog desk">
+       <img src="../../images/back/remy_loz-3S0INpfREQc-unsplash.jpg" class="img-fluid" alt="blog desk">
       <div class="card-img-overlay">
       
         <h1 class="card-title" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right; font-size: 5em;"><strong>Le Blog </strong></h1>
-        <h3 class="card-text" style="color: white; font-style: italic; font-family: 'Times New Roman', Times, serif; text-align: right;"><strong>Fait par des chefs, pour des chefs</strong></h3>
       </div>
         
     </div>
@@ -23,8 +22,7 @@
     <div class="card_display text-white bg-dark mb-3" style="width:20em;height:16em;" >
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="{{ blog.media }}" style="border-radius:5em; width:12em; height:12em" alt="...">
-    </div>
+    <img src="{{ vich_uploader_asset(blog, 'mediaFile') }}">    </div>
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">{{ blog.title }}</h5>

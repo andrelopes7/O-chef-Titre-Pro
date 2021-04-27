@@ -13,9 +13,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @Route("/recipes")
+  * @Vich\Uploadable
  */
 class RecipeController extends AbstractController
 {
@@ -49,6 +52,10 @@ class RecipeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $recipe->setCreatedAt(new \datetime());
+            $recipe->setUpdatedAt(new \datetime());
+
             $entityManager->persist($recipe);
             $entityManager->flush();
 

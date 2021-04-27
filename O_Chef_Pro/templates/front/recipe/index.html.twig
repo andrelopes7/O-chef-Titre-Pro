@@ -21,52 +21,12 @@
       <a class="btn btn-dark btn-lg" style="padding:20px; margin:30px; font-weight:bolder;" href="{{ path('ingredient_index') }}">Ingrédients</a>
       <a class="btn btn-dark btn-lg" style="padding:20px; margin:30px; font-weight:bolder;" href="{{ path('recipe_new') }}">Devenir un chef</a>
 
-
-{#-----------------------------------------Carroussel Favorits------------------------------------------#}
-
-<p class="h2" style="font-weight:bolder; font-size:3em;font-family: 'Times New Roman', Times, serif; ;">Les Favorits</p>
-
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width:70em; height:20em; margin:20px; background-color: white">
-
-  <div class="carousel-inner">
-
-<div class="carousel-item active">
-      <div class="card_display mb-3">
-      <div class="row g-0">
-      {% for recipe in recipes %}
-        <div class="col-md-4">
-            <img src="{{ vich_uploader_asset(recipe, 'pictureFile') }}" style="height:10em;width:10em">        
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{ recipe.name }}</h5>
-            <p class="card-text">{{ recipe.introduction }}</p>
-            <p class="card-text"><small class="text-muted">{{ recipe.createdAt|date("m/d/Y") }}</small></p>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-    </div>
-
- </div>
-
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
 {#-----------------------------------------Recipe Results display------------------------------------------#}
 
 <div id="recipes" style="display:inline-flex">
-  <p class="h2" style="font-style: italic; font-family: 'Times New Roman', Times, serif; font-size:3em; text-align:left">Recettes</p>
+  <p class="h2" >Recettes</p>
    {% for recipe in recipes %}
-    <div class="card_display" style="width: 20em;padding:10px; margin:30px;background-color:black; color:white; border-radius:20px"  >
+    <div class="card_display" >
 
           <img src="{{ vich_uploader_asset(recipe, 'pictureFile') }}" style="height:10em;width:10em">          
           <div class="card-body">

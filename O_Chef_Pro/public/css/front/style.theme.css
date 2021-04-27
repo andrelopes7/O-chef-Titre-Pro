@@ -38,8 +38,8 @@
 .card_index{
     background-color: black;
     color: white;
-    width: 15em;
-    height: 15em;
+    width: 17em;
+    height: 13em;
     margin: 20px;
     border-radius: 10px;
 }
@@ -59,7 +59,7 @@
 }
 
 .carousel {
-    width:70em; 
+    width:50em; 
     height:20em; 
     margin:20px; 
     background-color: white
@@ -307,7 +307,7 @@
 .card_display{
     display: inline-flex;
     width: 25em;
-    height: 16em;
+    height: 15em;
     padding:10px; 
     margin:10px;
     background-color:black;
@@ -408,8 +408,8 @@
     }
     
     .carousel {
-        width:60%;
-        height: 12em;
+        width:50%;
+        height: 16em;
         background-color: rgba(255, 255, 255, 0.377)
     }
     
@@ -421,6 +421,14 @@
         margin-left: 1em;
     }
     
+    .carousel-item_active{
+        width: 95%;
+        height: 60%;
+        color:rgb(247, 246, 242);
+        border-radius: 20px;
+        margin-left: 1em;
+    }
+
     .col-md-4 img{
         height:10em;
         width:10em

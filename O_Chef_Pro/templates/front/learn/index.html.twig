@@ -5,10 +5,9 @@
 {% block body %}
 
 <div class="card bg-dark text-white">
-       <img src="../images/back/randy-tarampi-ryUVRPYhxrY-unsplash.jpg" class="img-fluid" alt="gastronomy dish">
+       <img src="../../images/back/randy-tarampi-ryUVRPYhxrY-unsplash.jpg" class="img-fluid" alt="gastronomy dish">
       <div class="card-img-overlay">
         <h1 class="card-title"><strong>Cours de Cuisine</strong></h1>
-        <h2 class="card-text"><strong>Fait par des chefs, pour des chefs</strong></h2>
      </div>
 </div>
 
@@ -34,7 +33,7 @@
     <div class="card_index text-white bg-dark mb-3" style="display:inline-flex;height:15em; width:20em">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="{{ learn.picture }}" style="border-radius:5em; width:12em; height:12em" alt="...">
+            <img src="{{ vich_uploader_asset(learn, 'pictureFile') }}">        
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -51,6 +50,6 @@
 
 <br>
  
-<a href="{{ path('homepage') }}">Back to homepage</a>
+<a href="{{ path('homepages') }}">Back to homepage</a>
 
 {% endblock %}
