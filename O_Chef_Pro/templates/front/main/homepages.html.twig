@@ -10,16 +10,26 @@
         <h2 class="card-title">Pour l'amour de la gastronomie</h2>
         <h3 class="card-text">Fait par des chefs, pour des chefs</h3>
       </div>
-        <div class="input-group mb-1">
+  {#--------------------------------------Input SearchBar-----------------------------------------------#}
+            <div id="searchWrapper">
+                <input
+                    type="text"
+                    name="searchBar"
+                    id="searchBar"
+                    placeholder="search for a character"
+                />
+            </div>
+            <ul id="charactersList"></ul>
+        </div>
+        <script src="../js/app.js"></script>
+
+        {# <div class="input-group mb-1">
           <button class="btn btn-outline-dark" type="button" id="button-addon1">Rechercher</button>
           <input type="text" class="form-control" id="search-user" placeholder="Faites une recherche rapide" aria-label="Example text with button addon" aria-describedby="button-addon1">
         </div>
 
     </div>  
-        
-
-    
-
+ #}
           {#-----------------------------carroussel Articles------------------------------#} 
 
 <p class="h2">Les Favorits de la semaine</p>

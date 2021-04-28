@@ -16,6 +16,25 @@
     background-image: url("../../images/back/roman-grachev-eygJ8wxgfng-unsplash.jpg");
     
 }
+#searchBar {
+    width: 100%;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid #eaeaea;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+#searchWrapper {
+    position: relative;
+}
+
+#searchWrapper::after {
+    content: '🔍';
+    position: absolute;
+    top: 7px;
+    right: 15px;
+}
 
 .h1{
     font-size: 6em;
@@ -468,4 +487,3 @@
     }
     
   } 
- 
